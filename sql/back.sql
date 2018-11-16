@@ -1,0 +1,1 @@
+INSERT INTO comments (`name`,tel,content) VALUES ('4','4','发');

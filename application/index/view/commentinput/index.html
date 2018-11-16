@@ -47,6 +47,34 @@
               alert("请输入内容")
               return false;
           }
+
+          $.ajax({
+            url: '/index.php/index/CommentInput/insert',
+            data: {
+              name : name,
+              tel : tel ,
+              content : content,
+            },
+            dataType: 'json',
+            type: 'POST',
+            cache: false,
+            beforeSend: function() 
+            {
+              
+            },
+            success: function(ret) 
+            {
+              if (ret.code == 1) {
+                alert("添加成功，请刷新");
+                window.location.reload();
+              }
+            },    
+            error: function() 
+            {
+              
+            },    
+          });
+          
       });
     });
   </script>
