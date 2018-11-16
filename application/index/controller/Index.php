@@ -8,8 +8,8 @@ use think\Request;
 class Index extends Controller
 {
 
-  // http://tp.local/public/index.php/index/Index/htmlshow
-  public function htmlshow()
+  // http://tp.local/index.php/index/index
+  public function index()
   {
 
     // 第一种方式，输出内容

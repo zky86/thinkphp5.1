@@ -21,6 +21,8 @@ require __DIR__ . '/../thinkphp/base.php';
 // 在文件vhosts-conf 行：<VirtualHost *:80>  DocumentRoot "D:\phpStudy\WWW\tp5\public" 
 // 访问地址: http://tp.local/index.php
 
+// 否则原来的访问地址为： http://tp.local/public/index.php
+
 
 // 执行应用并响应
 Container::get('app')->run()->send();
