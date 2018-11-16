@@ -13,10 +13,11 @@ class Index extends Controller
   {
 
     // 第一种方式，输出内容
-    $content = '<h3>测试</h3>';
-    // return $this->display($content);
-    return $this->view->display($content);//推荐
+    // $content = '<h3>测试</h3>';
+    // // return $this->display($content);
+    // return $this->view->display($content);//推荐
 
+    // 第二种方式
     return $this->fetch('index');
 
   }
