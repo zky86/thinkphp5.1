@@ -24,5 +24,7 @@ require __DIR__ . '/../thinkphp/base.php';
 // 否则原来的访问地址为： http://tp.local/public/index.php
 
 
+
+
 // 执行应用并响应
 Container::get('app')->run()->send();

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>留言</title>
+  {include file="/public/_meta" timer="$timer" }
+</head>
+<body>
+  {include file="/public/_header"}
+  <div class="comment-page">
+
+    <div class="item-wrap">
+      <div class="item">
+        <input type="text" name="name"  id="name" class="form-control" placeholder="请输入姓名">
+      </div>
+      <div class="item">
+        <input type="text" name="tel" id="tel" class="form-control" placeholder="请输入电话">
+      </div>
+      <div class="item">
+        <textarea  name="content" id="content"  class="content" placeholder="请输入内容" ></textarea>
+      </div>
+    </div> 
+
+    <div class="btn" >
+      <p class="p" id="btn" >提交</p>
+    </div>
+        
+  </div>     
+
+  {include file="/public/_footer"}
+
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#btn').on('click', function(event) {
+          var name = $("#name").val();
+          var tel = $("#tel").val();
+          var content = $("#content").val();
+          if (!name) {
+              alert("请输入姓名")
+              return false;
+          }
+          if (!tel) {
+              alert("请输入电话")
+              return false;
+          }
+          if (!content) {
+              alert("请输入内容")
+              return false;
+          }
+      });
+    });
+  </script>
+
+</body>
+</html>
