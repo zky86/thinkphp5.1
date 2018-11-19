@@ -1,3 +1,6 @@
+## 记录thinkphp5.1框架学习过程。
++ 实现一个简单的系统功能，分前台，后台。
+
 ![](http://www.thinkphp.cn/Uploads/editor/2016-06-23/576b4732a6e04.png) 
 
 ThinkPHP 5.1（LTS版本） —— 12载初心，你值得信赖的PHP框架
