@@ -1,4 +1,4 @@
-## 记录thinkphp5.1框架学习过程。
+## 记录ThinkPHP 5.1框架学习过程。
 + 实现一个简单的系统功能，分前台，后台。
 
 ![](http://www.thinkphp.cn/Uploads/editor/2016-06-23/576b4732a6e04.png) 
