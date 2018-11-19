@@ -1,4 +1,4 @@
-<?php /*a:4:{s:66:"D:\phpStudy\WWW\tp5\application\index\view\commentinput\index.html";i:1542598838;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542597583;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542593185;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
+<?php /*a:4:{s:66:"D:\phpStudy\WWW\tp5\application\index\view\commentinput\index.html";i:1542600693;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542597583;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542600558;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="/static/common/reset.css" />
 <link rel="stylesheet" type="text/css" href="/static/common/layui.css" />
-<link rel="stylesheet" type="text/css" href="/static/common/model.css?1542598840" />
+<link rel="stylesheet" type="text/css" href="/static/common/model.css?1542600696" />
 
 <script type="text/javascript" src="/static/common/layui.all.js"></script>
 <script type="text/javascript" src="/static/common/jquery.js"></script>
@@ -18,7 +18,7 @@
   <div class="w-main f-bc f-cb">
 
     <span class="yj-nav-a <?php if(request()->controller() == 'Index'): ?>on<?php endif; ?> " >
-      <a href="javascript:;"> <b>首页</b>
+      <a href="/index.php/index/index"> <b>首页</b>
       </a>
     </span>
 
@@ -67,7 +67,8 @@
     </div> 
 
     <div class="btn" >
-      <p class="p" id="btn" >提交</p>
+      <p class=" layui-btn layui-btn-normal" id="btn" >提交</p>
+      <!-- class="layui-btn layui-btn-normal" -->
     </div>
         
   </div>     
