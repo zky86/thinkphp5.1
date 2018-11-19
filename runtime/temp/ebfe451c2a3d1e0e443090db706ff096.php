@@ -1,11 +1,11 @@
-<?php /*a:4:{s:66:"D:\phpStudy\WWW\tp5\application\index\view\commentinput\index.html";i:1542356790;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542347911;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542341243;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
+<?php /*a:4:{s:66:"D:\phpStudy\WWW\tp5\application\index\view\commentinput\index.html";i:1542356790;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542347911;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542593185;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title>留言</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="/static/common/reset.css" />
-<link rel="stylesheet" type="text/css" href="/static/common/model.css?1542356803" />
+<link rel="stylesheet" type="text/css" href="/static/common/model.css?1542593188" />
 <script type="text/javascript" src="/static/common/jquery.js"></script>
 <script type="text/javascript" src="/static/common/index.js"></script>
 <!-- <link rel="stylesheet" type="text/css" href="/static/index/css/reset.css" /> 变量配置路径-->
@@ -14,13 +14,13 @@
   <div class="yj-nav mc-hide">
   <div class="w-main f-bc f-cb">
 
-    <span class="yj-nav-a">
+    <span class="yj-nav-a <?php if(request()->controller() == 'Index'): ?>on<?php endif; ?> " >
       <a href="javascript:;"> <b>首页</b>
       </a>
     </span>
 
-    <span class="yj-nav-a">
-      <a href="javascript:;"> <b>选项1</b></a>
+    <span class="yj-nav-a <?php if(request()->controller() == 'ListPage'): ?>on<?php endif; ?>">
+      <a href="/index.php/index/listPage"> <b>列表</b></a>
       <div class="yj-nav-child" style="display: none;">
         <ul>
           <li>
@@ -33,9 +33,9 @@
       </div>
     </span>
 
-    <span class="yj-nav-a">
-      <a href="javascript:;"> <b>选项2</b></a>
-      <div class="yj-nav-child" style="display: none;">
+    <span class="yj-nav-a <?php if(request()->controller() == 'CommentInput'): ?>on<?php endif; ?>">
+      <a href="/index.php/index/CommentInput"> <b>留言</b></a>
+<!--       <div class="yj-nav-child" style="display: none;">
         <ul>
           <li>
             <a href="javascript:;">子选项2</a>
@@ -44,7 +44,7 @@
             <a href="javascript:;">子选项2</a>
           </li>
         </ul>
-      </div>
+      </div> -->
     </span>
 
   </div>

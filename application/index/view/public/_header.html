@@ -1,13 +1,13 @@
 <div class="yj-nav mc-hide">
   <div class="w-main f-bc f-cb">
 
-    <span class="yj-nav-a">
+    <span class="yj-nav-a {eq name=':request()->controller()' value='Index'}on{/eq} " >
       <a href="javascript:;"> <b>首页</b>
       </a>
     </span>
 
-    <span class="yj-nav-a">
-      <a href="javascript:;"> <b>选项1</b></a>
+    <span class="yj-nav-a {eq name=':request()->controller()' value='ListPage'}on{/eq}">
+      <a href="/index.php/index/listPage"> <b>列表</b></a>
       <div class="yj-nav-child" style="display: none;">
         <ul>
           <li>
@@ -20,9 +20,9 @@
       </div>
     </span>
 
-    <span class="yj-nav-a">
-      <a href="javascript:;"> <b>选项2</b></a>
-      <div class="yj-nav-child" style="display: none;">
+    <span class="yj-nav-a {eq name=':request()->controller()' value='CommentInput'}on{/eq}">
+      <a href="/index.php/index/CommentInput"> <b>留言</b></a>
+<!--       <div class="yj-nav-child" style="display: none;">
         <ul>
           <li>
             <a href="javascript:;">子选项2</a>
@@ -31,7 +31,7 @@
             <a href="javascript:;">子选项2</a>
           </li>
         </ul>
-      </div>
+      </div> -->
     </span>
 
   </div>

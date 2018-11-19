@@ -6,6 +6,28 @@
 <link rel="stylesheet" type="text/css" href="/static/list/css/list.css" />
 </head>
 <body>
-    hello world; 列表页
+    {include file="/public/_header"}
+
+    <div class="list-page w1000">
+
+        <div class="list-wrap">
+
+        {foreach name="list" as item="vo"}　
+          <div class="item">
+              <div class="p1 p"><span class="w">用户名：</span>{$vo.name}</div>
+              <div class="p2 p"><span class="w">电话号码：</span>{$vo.tel}</div>
+              <div class="p3 p"><span class="w">留言时间：</span>{$vo.timer}</div>
+              <div class="p3 p"><span class="w">留言内容：</span>{$vo.content}</div>
+              
+          </div> 
+        {/foreach}
+
+
+        </div>
+
+        
+    </div>     
+
+    {include file="/public/_footer"}
 </body>
 </html>
