@@ -1,4 +1,4 @@
-<?php /*a:4:{s:62:"D:\phpStudy\WWW\tp5\application\index\view\listpage\index.html";i:1542597279;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542597583;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542600558;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
+<?php /*a:4:{s:62:"D:\phpStudy\WWW\tp5\application\index\view\listpage\index.html";i:1542597279;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542597583;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542607189;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,8 +16,8 @@
 </head>
 <body>
     <div class="yj-nav mc-hide">
-  <div class="w-main f-bc f-cb">
 
+  <div class="w-main f-bc f-cb">
     <span class="yj-nav-a <?php if(request()->controller() == 'Index'): ?>on<?php endif; ?> " >
       <a href="/index.php/index/index"> <b>首页</b>
       </a>
@@ -25,7 +25,7 @@
 
     <span class="yj-nav-a <?php if(request()->controller() == 'ListPage'): ?>on<?php endif; ?>">
       <a href="/index.php/index/listPage"> <b>列表</b></a>
-      <div class="yj-nav-child" style="display: none;">
+<!--       <div class="yj-nav-child" style="display: none;">
         <ul>
           <li>
             <a href="javascript:;">子选项1</a>
@@ -34,7 +34,7 @@
             <a href="javascript:;">子选项1</a>
           </li>
         </ul>
-      </div>
+      </div> -->
     </span>
 
     <span class="yj-nav-a <?php if(request()->controller() == 'CommentInput'): ?>on<?php endif; ?>">
@@ -52,6 +52,11 @@
     </span>
 
   </div>
+
+  <div class="login">
+    <a href="#">登陆</a>
+  </div>
+
 </div>
 
     <div class="list-page w1000">

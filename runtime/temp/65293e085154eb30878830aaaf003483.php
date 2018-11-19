@@ -1,11 +1,49 @@
+<?php /*a:4:{s:66:"D:\phpStudy\WWW\tp5\application\admin\view\commentinput\index.html";i:1542600693;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1542597583;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1542607313;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542342080;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title>留言</title>
-  {include file="/public/_meta" timer="$timer" }
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/static/common/reset.css" />
+<link rel="stylesheet" type="text/css" href="/static/common/layui.css" />
+<link rel="stylesheet" type="text/css" href="/static/common/model.css?1542607314" />
+
+<script type="text/javascript" src="/static/common/layui.all.js"></script>
+<script type="text/javascript" src="/static/common/jquery.js"></script>
+<script type="text/javascript" src="/static/common/index.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="/static/index/css/reset.css" /> 变量配置路径-->
 </head>
 <body>
-  {include file="/public/_header"}
+  <div class="yj-nav mc-hide">
+
+  <div class="w-main f-bc f-cb">
+    <span class="yj-nav-a <?php if(request()->controller() == 'Index'): ?>on<?php endif; ?> " >
+      <a href="/index.php/admin/index"> <b>后台管理首页</b>
+      </a>
+    </span>
+
+    <span class="yj-nav-a <?php if(request()->controller() == 'ListPage'): ?>on<?php endif; ?>">
+      <a href="/index.php/admin/listPage"> <b>列表</b></a>
+<!--       <div class="yj-nav-child" style="display: none;">
+        <ul>
+          <li>
+            <a href="javascript:;">子选项1</a>
+          </li>
+          <li>
+            <a href="javascript:;">子选项1</a>
+          </li>
+        </ul>
+      </div> -->
+    </span>
+
+
+  </div>
+
+  <div class="login">
+    <a href="#">登陆</a>
+  </div>
+
+</div>
   <div class="comment-page">
 
     <div class="item-wrap">
@@ -27,7 +65,19 @@
         
   </div>     
 
-  {include file="/public/_footer"}
+  <div class="footer">
+  <div class="w-main f-bc f-cb">
+    <!-- <ul class="footer-links">
+      <li class="footer-links-bd">
+        <a href="javascript:;" >选项1</a>
+      </li>
+      <li class="footer-links-bd">
+        <a href="javascript:;">选项2</a>
+      </li>
+    </ul> -->
+    底部
+  </div>
+</div>
 
 
   <script type="text/javascript">
@@ -37,18 +87,15 @@
           var tel = $("#tel").val();
           var content = $("#content").val();
           if (!name) {
-              // alert("请输入姓名")
-              layer.msg('请输入姓名');
+              alert("请输入姓名")
               return false;
           }
           if (!tel) {
-              // alert("请输入电话")
-              layer.msg('请输入电话');
+              alert("请输入电话")
               return false;
           }
           if (!content) {
-              // alert("请输入内容")
-              layer.msg('请输入内容');
+              alert("请输入内容")
               return false;
           }
 

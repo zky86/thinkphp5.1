@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>列表页</title>
+{include file="/public/_meta"}
+<link rel="stylesheet" type="text/css" href="/static/list/css/list.css" />
+</head>
+<body>
+    {include file="/public/_header"}
+
+    <div class="list-page w1000">
+
+        <div class="list-wrap">
+          {volist name="list"  id='list'}　
+            <div class="item">
+                <div class="p1 p"><span class="w">用户名：</span>{$list.name}</div>
+                <div class="p2 p"><span class="w">电话号码：</span>{$list.tel}</div>
+                <div class="p3 p"><span class="w">留言时间：</span>{$list.timer}</div>
+                <div class="p3 p"><span class="w">留言内容：</span>{$list.content}</div>
+                <div class="p4 p"><span class="w">管理员操作：</span> <a href="javascript:;" data-role="del"  data-id="{$list.id}">删除</a> <a href="javascript:;" data-role="edit" >修改</a></div>
+                <div class="p5 p dn">
+                  <textarea name=""  placeholder="请输入修改的内容" class="textarea-class" ></textarea>
+                  <div class="layui-btn layui-btn-normal mt20" data-role="submim" data-id="{$list.id}">提交</div>
+                </div>
+                
+
+            </div> 
+          {/volist}
+
+          <div class="page">
+              {$page|raw}
+          </div>
+        
+        </div>
+
+    </div>     
+
+    {include file="/public/_footer"}
+</body>
+</html>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    // 删除
+    $('[data-role="del"]').on('click', function(event) {
+        var id = $(this).attr("data-id");
+        layer.open({
+          title: '',content: '是否确认删除？',
+          closeBtn: 1,
+          area: ['500px', '150px'],
+          yes: function(index, layero){
+            $.ajax({
+              url: '/index.php/admin/ListPage/del',
+              data: {
+                id : id,
+              },
+              dataType: 'json',
+              type: 'POST',
+              cache: false,
+              beforeSend: function() 
+              {
+                
+              },
+              success: function(ret) 
+              {
+                console.log(ret);
+                if (ret.code == 1) {
+                  // alert("添加成功，请刷新");
+                  layer.msg('删除成功！');
+                  setTimeout(function(){
+                    window.location.reload();
+                  }, 2000)
+                }
+              },    
+              error: function() 
+              {
+                
+              },    
+            });
+          }
+        });
+        
+    });
+
+   // 修改
+  $('[data-role="edit"]').on('click', function(event) {
+      $(this).parent().next().removeClass('dn');
+  });
+
+  $('[data-role="submim"]').on('click', function(event) {
+      var id = $(this).attr("data-id");
+      var txt = $(this).prev().val();
+      if (!txt) {
+          layer.msg('请输入内容！');
+          return;
+      }
+      console.log(txt);
+      $.ajax({
+        url: '/index.php/admin/ListPage/update',
+        data: {
+          id : id,
+          txt : txt
+        },
+        dataType: 'json',
+        type: 'POST',
+        cache: false,
+        beforeSend: function() 
+        {
+          
+        },
+        success: function(ret) 
+        {
+          console.log(ret);
+          if (ret.code == 1) {
+            // alert("添加成功，请刷新");
+            layer.msg('修改成功！');
+            setTimeout(function(){
+              window.location.reload();
+            }, 2000)
+          }
+        },    
+        error: function() 
+        {
+          
+        },    
+      });
+  });
+
+
+
+  });
+
+</script>
+
+
