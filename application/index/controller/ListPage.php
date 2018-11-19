@@ -7,18 +7,15 @@ use think\Db;
 
 class ListPage extends Controller
 {
-
   // http://tp.local/index.php/index/ListPage
-
   public function index()
   {
-    $ret = Db::table('comments')->order("ID desc")->select();
+    $list = Db::table('comments')->order("ID desc")->paginate(5);
+    $page = $list->render();
     // print_r($ret);
-    $this->assign("list", $ret);
-    // return 1;
+    $this->assign('list', $list);
+    $this->assign('page', $page);
     return $this->fetch('listpage/index');
   }
-
-
-
+  
 }

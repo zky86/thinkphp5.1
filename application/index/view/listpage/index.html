@@ -11,21 +11,21 @@
     <div class="list-page w1000">
 
         <div class="list-wrap">
+          {volist name="list"  id='list'}　
+            <div class="item">
+                <div class="p1 p"><span class="w">用户名：</span>{$list.name}</div>
+                <div class="p2 p"><span class="w">电话号码：</span>{$list.tel}</div>
+                <div class="p3 p"><span class="w">留言时间：</span>{$list.timer}</div>
+                <div class="p3 p"><span class="w">留言内容：</span>{$list.content}</div>
+            </div> 
+          {/volist}
 
-        {foreach name="list" as item="vo"}　
-          <div class="item">
-              <div class="p1 p"><span class="w">用户名：</span>{$vo.name}</div>
-              <div class="p2 p"><span class="w">电话号码：</span>{$vo.tel}</div>
-              <div class="p3 p"><span class="w">留言时间：</span>{$vo.timer}</div>
-              <div class="p3 p"><span class="w">留言内容：</span>{$vo.content}</div>
-              
-          </div> 
-        {/foreach}
-
-
+          <div class="page">
+              {$page|raw}
+          </div>
+        
         </div>
 
-        
     </div>     
 
     {include file="/public/_footer"}

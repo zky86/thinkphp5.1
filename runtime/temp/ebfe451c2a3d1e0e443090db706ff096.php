@@ -1,11 +1,14 @@
-<?php /*a:4:{s:66:"D:\phpStudy\WWW\tp5\application\index\view\commentinput\index.html";i:1542356790;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542347911;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542593185;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
+<?php /*a:4:{s:66:"D:\phpStudy\WWW\tp5\application\index\view\commentinput\index.html";i:1542598838;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542597583;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542593185;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title>留言</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="/static/common/reset.css" />
-<link rel="stylesheet" type="text/css" href="/static/common/model.css?1542593188" />
+<link rel="stylesheet" type="text/css" href="/static/common/layui.css" />
+<link rel="stylesheet" type="text/css" href="/static/common/model.css?1542598840" />
+
+<script type="text/javascript" src="/static/common/layui.all.js"></script>
 <script type="text/javascript" src="/static/common/jquery.js"></script>
 <script type="text/javascript" src="/static/common/index.js"></script>
 <!-- <link rel="stylesheet" type="text/css" href="/static/index/css/reset.css" /> 变量配置路径-->
@@ -119,9 +122,18 @@
             },
             success: function(ret) 
             {
+
               if (ret.code == 1) {
-                alert("添加成功，请刷新");
-                window.location.reload();
+                // alert("添加成功，请刷新");
+                layer.open({
+                  title: '',content: '添加成功...',
+                  closeBtn: 0,
+                  area: ['500px', '150px'],
+                  yes: function(index, layero){
+                      window.location.reload();
+                      // layer.close(index); //如果设定了yes回调，需进行手工关闭
+                  }
+                });
               }
             },    
             error: function() 
@@ -132,6 +144,7 @@
           
       });
     });
+
   </script>
 
 </body>
