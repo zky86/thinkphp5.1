@@ -11,6 +11,8 @@
 + 管理员登陆，退出
 + 删除，修改评论功能
 + 后台文件登陆权限校验
++ Session记录登陆用户操作
+
 
 ![](http://www.thinkphp.cn/Uploads/editor/2016-06-23/576b4732a6e04.png) 
 
