@@ -3,6 +3,7 @@
 namespace app\index\controller;
 use think\Controller;
 use think\Db;
+use think\facade\Session;
 
 // http://tp.local/public/index.php/index/HelloWorld
 class LoginIn  extends Controller
@@ -40,8 +41,11 @@ class LoginIn  extends Controller
       }
 
       // 记录用户登录信息
-      cookie('user_id', $has['id'], 3600);  // 一个小时有效期
-      cookie('name', $has['name'], 3600);
+      // cookie('user_id', $has['id'], 3600);  // 一个小时有效期
+      // cookie('name', $has['name'], 3600);
+
+      Session::set('user_id',$has['id']);
+      Session::set('name',$has['name']);
 
       $this->success('登陆成功');
 
@@ -55,4 +59,33 @@ class LoginIn  extends Controller
 
 
     }
+
+
+    public function loginOut()
+    {
+      $param = input('post.');
+
+      // cookie(null);
+      // cookie('user_id', null);
+      // cookie('name', null); 
+
+      Session::delete('user_id');
+      Session::delete('name');
+
+      Session::clear();
+      Session::clear('user_id');
+      Session::clear('name');
+
+
+      Session::delete('name','admin');
+      Session::delete('user_id','admin');
+
+
+      Session::delete('name','index');
+      Session::delete('user_id','index');
+
+      // $this->redirect(url('login/index'));
+      $this->success('退出成功');
+    }
+
 }

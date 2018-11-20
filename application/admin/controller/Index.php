@@ -5,23 +5,25 @@ use think\Controller;
 use think\Request;
 
 
-class Index extends Controller
+// class Index extends Controller
+// app\admin\controller\Base
+class Index extends \app\admin\controller\Base
 {
 
   // http://tp.local/index.php/index/index
   public function index()
   {
+    // print_r($this->loginOut());
 
     // 第一种方式，输出内容
     // $content = '<h3>测试</h3>';
     // // return $this->display($content);
     // return $this->view->display($content);//推荐
 
+
     // 第二种方式
     return $this->fetch('index');
-
   }
-
 
 
   // public function index(Request $request)

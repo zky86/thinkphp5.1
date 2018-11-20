@@ -5,7 +5,7 @@ use think\Controller;
 use think\Request;
 use think\Db;
 
-class ListPage extends Controller
+class ListPage extends \app\admin\controller\Base
 {
   // http://tp.local/index.php/index/ListPage
   public function index()

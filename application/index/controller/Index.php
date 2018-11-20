@@ -16,7 +16,7 @@ class Index extends Controller
     // $content = '<h3>测试</h3>';
     // // return $this->display($content);
     // return $this->view->display($content);//推荐
-
+    
     // 第二种方式
     return $this->fetch('index');
 
