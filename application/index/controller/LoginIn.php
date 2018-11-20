@@ -72,18 +72,6 @@ class LoginIn  extends Controller
       Session::delete('user_id');
       Session::delete('name');
 
-      Session::clear();
-      Session::clear('user_id');
-      Session::clear('name');
-
-
-      Session::delete('name','admin');
-      Session::delete('user_id','admin');
-
-
-      Session::delete('name','index');
-      Session::delete('user_id','index');
-
       // $this->redirect(url('login/index'));
       $this->success('退出成功');
     }

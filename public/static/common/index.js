@@ -11,7 +11,7 @@ $(function(){
   // 退出
   $('#loginOut').on('click', function(event) {
       $.ajax({
-        url: '/index.php/index/LoginIn/login',
+        url: '/index.php/index/LoginIn/loginOut',
         data: {
           code : 1
         },
