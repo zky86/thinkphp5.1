@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{include file="/public/_meta"}
+<link rel="stylesheet" type="text/css" href="/static/index/css/index.css" />
+<title>登陆</title>
+
+</head>
+<body>
+
+    {include file="/public/_header"}
+
+
+    <div class="login-page">
+      
+      <div class="login-box">
+        <div class="p1">登陆</div>
+        <div class="p2"><input type="text"  id="name" class="input-text" placeholder="请输入账号" /></div>
+        <div class="p3"><input type="password" id="password" placeholder="请输入密码" class="input-text" /></div>
+
+        <div class="btn">
+          <div class="layui-btn layui-btn-normal" id="btn">确定</div>
+        </div>
+      </div>
+
+    </div>
+
+
+    {include file="/public/_footer"}
+
+    
+</body>
+</html>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    // console.log(getCookie("user_id"));
+
+    $('#btn').on('click', function(event) {
+      var name = $("#name").val();
+      var password = $("#password").val();
+      if (!name) {
+          layer.msg('请输入姓名');
+          return false;
+      }
+      if (!password) {
+          // alert("请输入电话")
+          layer.msg('请输入密码');
+          return false;
+      }
+
+      $.ajax({
+        url: '/index.php/index/LoginIn/login',
+        data: {
+          name : name,
+          password : password 
+        },
+        dataType: 'json',
+        type: 'POST',
+        cache: false,
+        beforeSend: function() 
+        {
+          
+        },
+        success: function(ret) 
+        {
+          console.log(ret);
+          if (ret.code == 1) {
+            // alert("添加成功，请刷新");
+            location.href = "/index.php/admin/"
+          }
+          else{
+            layer.msg(ret.msg);
+          }
+        },    
+        error: function() 
+        {
+          
+        },    
+      });
+
+    });
+  });
+</script>

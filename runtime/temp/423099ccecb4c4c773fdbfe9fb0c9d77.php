@@ -1,8 +1,7 @@
-<?php /*a:4:{s:62:"D:\phpStudy\WWW\tp5\application\index\view\listpage\index.html";i:1542597279;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542597583;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542681079;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
+<?php /*a:4:{s:61:"D:\phpStudy\WWW\tp5\application\index\view\loginin\index.html";i:1542687633;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542683077;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542681079;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>列表页</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="/static/common/reset.css" />
 <link rel="stylesheet" type="text/css" href="/static/common/layui.css" />
@@ -11,10 +10,14 @@
 <script type="text/javascript" src="/static/common/layui.all.js"></script>
 <script type="text/javascript" src="/static/common/jquery.js"></script>
 <script type="text/javascript" src="/static/common/index.js"></script>
+<script type="text/javascript" src="/static/common/cookie.js"></script>
 <!-- <link rel="stylesheet" type="text/css" href="/static/index/css/reset.css" /> 变量配置路径-->
-<link rel="stylesheet" type="text/css" href="/static/list/css/list.css" />
+<link rel="stylesheet" type="text/css" href="/static/index/css/index.css" />
+<title>登陆</title>
+
 </head>
 <body>
+
     <div class="yj-nav mc-hide">
 
   <div class="w-main f-bc f-cb">
@@ -59,25 +62,21 @@
 
 </div>
 
-    <div class="list-page w1000">
 
-        <div class="list-wrap">
-          <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?>　
-            <div class="item">
-                <div class="p1 p"><span class="w">用户名：</span><?php echo htmlentities($list['name']); ?></div>
-                <div class="p2 p"><span class="w">电话号码：</span><?php echo htmlentities($list['tel']); ?></div>
-                <div class="p3 p"><span class="w">留言时间：</span><?php echo htmlentities($list['timer']); ?></div>
-                <div class="p3 p"><span class="w">留言内容：</span><?php echo htmlentities($list['content']); ?></div>
-            </div> 
-          <?php endforeach; endif; else: echo "" ;endif; ?>
+    <div class="login-page">
+      
+      <div class="login-box">
+        <div class="p1">登陆</div>
+        <div class="p2"><input type="text"  id="name" class="input-text" placeholder="请输入账号" /></div>
+        <div class="p3"><input type="password" id="password" placeholder="请输入密码" class="input-text" /></div>
 
-          <div class="page">
-              <?php echo $page; ?>
-          </div>
-        
+        <div class="btn">
+          <div class="layui-btn layui-btn-normal" id="btn">确定</div>
         </div>
+      </div>
 
-    </div>     
+    </div>
+
 
     <div class="footer">
   <div class="w-main f-bc f-cb">
@@ -92,5 +91,58 @@
     底部
   </div>
 </div>
+
+    
 </body>
 </html>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    // console.log(getCookie("user_id"));
+
+    $('#btn').on('click', function(event) {
+      var name = $("#name").val();
+      var password = $("#password").val();
+      if (!name) {
+          layer.msg('请输入姓名');
+          return false;
+      }
+      if (!password) {
+          // alert("请输入电话")
+          layer.msg('请输入密码');
+          return false;
+      }
+
+      $.ajax({
+        url: '/index.php/index/LoginIn/login',
+        data: {
+          name : name,
+          password : password 
+        },
+        dataType: 'json',
+        type: 'POST',
+        cache: false,
+        beforeSend: function() 
+        {
+          
+        },
+        success: function(ret) 
+        {
+          console.log(ret);
+          if (ret.code == 1) {
+            // alert("添加成功，请刷新");
+            location.href = "/index.php/admin/"
+          }
+          else{
+            layer.msg(ret.msg);
+          }
+        },    
+        error: function() 
+        {
+          
+        },    
+      });
+
+    });
+  });
+</script>
