@@ -1,4 +1,4 @@
-<?php /*a:4:{s:59:"D:\phpStudy\WWW\tp5\application\index\view\index\index.html";i:1542607687;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542799991;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542799500;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
+<?php /*a:4:{s:58:"D:\phpStudy\WWW\tp5\application\admin\view\news\index.html";i:1542798322;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1542800001;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1542799002;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542342080;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,10 +10,9 @@
 <script type="text/javascript" src="/static/common/layui.all.js"></script>
 <script type="text/javascript" src="/static/common/jquery.js"></script>
 <script type="text/javascript" src="/static/common/index.js"></script>
-<script type="text/javascript" src="/static/common/cookie.js"></script>
 <!-- <link rel="stylesheet" type="text/css" href="/static/index/css/reset.css" /> 变量配置路径-->
 <link rel="stylesheet" type="text/css" href="/static/index/css/index.css" />
-<title>首页</title>
+<title>发布新闻</title>
 
 </head>
 <body>
@@ -22,12 +21,12 @@
 
   <div class="w-main f-bc f-cb">
     <span class="yj-nav-a <?php if(request()->controller() == 'Index'): ?>on<?php endif; ?> " >
-      <a href="/index.php/index/index"> <b>首页</b>
+      <a href="/index.php/admin/index"> <b>后台管理首页</b>
       </a>
     </span>
 
     <span class="yj-nav-a <?php if(request()->controller() == 'ListPage'): ?>on<?php endif; ?>">
-      <a href="/index.php/index/listPage"> <b>评论列表</b></a>
+      <a href="/index.php/admin/listPage"> <b>评论管理</b></a>
 <!--       <div class="yj-nav-child" style="display: none;">
         <ul>
           <li>
@@ -42,53 +41,25 @@
 
 
     <span class="yj-nav-a <?php if(request()->controller() == 'News'): ?>on<?php endif; ?>">
-      <a href="/index.php/index/news"> <b>新闻</b></a>
-        <div class="yj-nav-child" style="display: none;">
-          <ul>
-            <li>
-              <a href="javascript:;">娱乐新闻</a>
-            </li>
-            <li>
-              <a href="javascript:;">体育新闻</a>
-            </li>
-            <li>
-              <a href="javascript:;">时事新闻</a>
-            </li>
-          </ul>
-        </div>
+      <a href="/index.php/admin/news"> <b>发布新闻</b></a>
     </span>
-
-
-    <span class="yj-nav-a <?php if(request()->controller() == 'CommentInput'): ?>on<?php endif; ?>">
-      <a href="/index.php/index/CommentInput"> <b>发布评论</b></a>
-<!--       <div class="yj-nav-child" style="display: none;">
-        <ul>
-          <li>
-            <a href="javascript:;">子选项2</a>
-          </li>
-          <li>
-            <a href="javascript:;">子选项2</a>
-          </li>
-        </ul>
-      </div> -->
-    </span>
-
-    
 
   </div>
 
   <div class="login">
-    <a href="/index.php/index/LoginIn">登陆</a>
-    <a href="/index.php/index/register">注册</a>
+    <a href="/index.php/index/index" title="前往前台首页" target="_blank">前台首页</a>
+    <a href="javascript:;">您好，<?php echo Session::get('name');?></a>
+    <a href="javascript:;" id="loginOut">退出</a>
   </div>
 
 </div>
 
 
+
     <div class="index-page">
       
       <div class="p1th">
-        留言评论系统
+        管理员功能
       </div>
     </div>
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{include file="/public/_meta"}
+<link rel="stylesheet" type="text/css" href="/static/index/css/index.css" />
+<title>发布新闻</title>
+
+</head>
+<body>
+
+    {include file="/public/_header"}
+
+
+    <div class="new-page w1000">
+        <div class="item-wrap">
+
+          {volist name="list"  id='list'}　
+            <div class="item">
+                <div class="title">
+                    {$list.title}
+                </div>
+                <div class="des pt10">
+                    {$list.des}
+                </div>
+                <div class="content pt10">
+                    {$list.content}
+                </div>
+                <div class="time pt20">
+                    {$list.timer}
+                </div>
+            </div> 
+          {/volist}
+
+          <div class="page">
+              {$page|raw}
+          </div>
+            
+        </div>     
+    </div>
+
+
+    {include file="/public/_footer"}
+
+    
+</body>
+</html>

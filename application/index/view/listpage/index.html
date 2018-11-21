@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>列表页</title>
+<title>评论列表</title>
 {include file="/public/_meta"}
 <link rel="stylesheet" type="text/css" href="/static/list/css/list.css" />
 </head>
@@ -16,10 +16,14 @@
                 <div class="p1 p"><span class="w">用户名：</span>{$list.name}</div>
                 <div class="p2 p"><span class="w">电话号码：</span>{$list.tel}</div>
                 <div class="p3 p"><span class="w">留言时间：</span>{$list.timer}</div>
-                <div class="p3 p"><span class="w">留言内容：</span>{$list.content}</div>
-                <div class="p3 p"><span class="w">留言图片：</span>
-                <br />
-                <img src="/uploads/{$list.imgurl}" /></div>
+                <div class="p4 p"><span class="w">留言内容：</span>{$list.content}</div>
+                <div class="p5 p">
+                  <span class="w">留言图片：</span>
+                  {if condition="$list.imgurl"} 
+                    <br />
+                    <img src="/uploads/{$list.imgurl}" />
+                  {/if}
+              </div>
             </div> 
           {/volist}
 

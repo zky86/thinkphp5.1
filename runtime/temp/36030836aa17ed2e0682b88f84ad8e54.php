@@ -1,11 +1,11 @@
-<?php /*a:4:{s:59:"D:\phpStudy\WWW\tp5\application\admin\view\index\index.html";i:1542610268;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1542607460;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1542696739;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542342080;}*/ ?>
+<?php /*a:4:{s:59:"D:\phpStudy\WWW\tp5\application\admin\view\index\index.html";i:1542610268;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1542800001;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1542799002;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542342080;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="/static/common/reset.css" />
 <link rel="stylesheet" type="text/css" href="/static/common/layui.css" />
-<link rel="stylesheet" type="text/css" href="/static/common/admin-model.css?[timer]" />
+<link rel="stylesheet" type="text/css" href="/static/common/model.css?[timer]" />
 
 <script type="text/javascript" src="/static/common/layui.all.js"></script>
 <script type="text/javascript" src="/static/common/jquery.js"></script>
@@ -26,7 +26,7 @@
     </span>
 
     <span class="yj-nav-a <?php if(request()->controller() == 'ListPage'): ?>on<?php endif; ?>">
-      <a href="/index.php/admin/listPage"> <b>列表</b></a>
+      <a href="/index.php/admin/listPage"> <b>评论管理</b></a>
 <!--       <div class="yj-nav-child" style="display: none;">
         <ul>
           <li>
@@ -39,6 +39,10 @@
       </div> -->
     </span>
 
+
+    <span class="yj-nav-a <?php if(request()->controller() == 'News'): ?>on<?php endif; ?>">
+      <a href="/index.php/admin/news"> <b>发布新闻</b></a>
+    </span>
 
   </div>
 

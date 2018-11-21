@@ -7,7 +7,7 @@
     </span>
 
     <span class="yj-nav-a {eq name=':request()->controller()' value='ListPage'}on{/eq}">
-      <a href="/index.php/index/listPage"> <b>列表</b></a>
+      <a href="/index.php/index/listPage"> <b>评论列表</b></a>
 <!--       <div class="yj-nav-child" style="display: none;">
         <ul>
           <li>
@@ -20,8 +20,27 @@
       </div> -->
     </span>
 
+
+    <span class="yj-nav-a {eq name=':request()->controller()' value='News'}on{/eq}">
+      <a href="/index.php/index/news"> <b>新闻</b></a>
+        <div class="yj-nav-child" style="display: none;">
+          <ul>
+            <li>
+              <a href="javascript:;">娱乐新闻</a>
+            </li>
+            <li>
+              <a href="javascript:;">体育新闻</a>
+            </li>
+            <li>
+              <a href="javascript:;">时事新闻</a>
+            </li>
+          </ul>
+        </div>
+    </span>
+
+
     <span class="yj-nav-a {eq name=':request()->controller()' value='CommentInput'}on{/eq}">
-      <a href="/index.php/index/CommentInput"> <b>留言</b></a>
+      <a href="/index.php/index/CommentInput"> <b>发布评论</b></a>
 <!--       <div class="yj-nav-child" style="display: none;">
         <ul>
           <li>
@@ -33,6 +52,8 @@
         </ul>
       </div> -->
     </span>
+
+    
 
   </div>
 
