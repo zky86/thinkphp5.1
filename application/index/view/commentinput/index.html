@@ -45,6 +45,7 @@
 
   <script type="text/javascript">
     $(document).ready(function() {
+      var imgUrl = "";
       $('#btn').on('click', function(event) {
           var name = $("#name").val();
           var tel = $("#tel").val();
@@ -71,6 +72,7 @@
               name : name,
               tel : tel ,
               content : content,
+              imgurl : imgUrl,
             },
             dataType: 'json',
             type: 'POST',
@@ -140,10 +142,30 @@
           $.ajaxFileUpload({
               url: '/index.php/index/CommentInput/uploadFile',
               fileElementId:'file',
-              dataType:'txt',
+              dataType:'JSON',
               secureuri : false,
               success: function (data){
-                  console.log(data);
+                console.log(data);
+                if (data == 0) {
+                  // alert("添加成功，请刷新");
+                  layer.msg( "请选择文件！" , {  
+                      time: 2000, //20s后自动关闭  
+                      // btn: ['明白了', '知道了']  
+                    },function(){
+
+                    }
+                  );
+                  return;
+                }
+
+                layer.msg( "上传成功！" , {  
+                    time: 2000, //20s后自动关闭  
+                    // btn: ['明白了', '知道了']  
+                  },function(){
+                    imgUrl = data;
+                  }
+                );
+
               },
               error:function(data,status,e){
                   alert(e);
