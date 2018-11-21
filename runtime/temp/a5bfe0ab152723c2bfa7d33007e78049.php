@@ -1,4 +1,4 @@
-<?php /*a:4:{s:59:"D:\phpStudy\WWW\tp5\application\index\view\index\index.html";i:1542607687;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542683077;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542681079;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
+<?php /*a:4:{s:59:"D:\phpStudy\WWW\tp5\application\index\view\index\index.html";i:1542607687;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542683077;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542709557;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -58,6 +58,7 @@
 
   <div class="login">
     <a href="/index.php/index/LoginIn">登陆</a>
+    <a href="/index.php/index/register">注册</a>
   </div>
 
 </div>

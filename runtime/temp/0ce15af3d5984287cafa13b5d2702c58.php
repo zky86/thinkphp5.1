@@ -1,4 +1,4 @@
-<?php /*a:4:{s:62:"D:\phpStudy\WWW\tp5\application\admin\view\listpage\index.html";i:1542709039;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1542607460;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1542696739;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542342080;}*/ ?>
+<?php /*a:4:{s:62:"D:\phpStudy\WWW\tp5\application\admin\view\listpage\index.html";i:1542709718;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1542607460;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1542696739;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542342080;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -120,7 +120,7 @@
                 console.log(ret);
                 if (ret.code == 1) {
                   // alert("添加成功，请刷新");
-                  layer.msg('删除成功！');
+                  // layer.msg('删除成功！');
 
 
                   layer.msg( "删除成功！" , {  
@@ -130,7 +130,7 @@
                       window.location.reload();
                     }
                   );
-                  
+
                 }
               },    
               error: function() 
@@ -174,10 +174,13 @@
           console.log(ret);
           if (ret.code == 1) {
             // alert("添加成功，请刷新");
-            layer.msg('修改成功！');
-            setTimeout(function(){
-              window.location.reload();
-            }, 2000)
+            layer.msg( "修改成功！" , {  
+                time: 2000, //20s后自动关闭  
+                // btn: ['明白了', '知道了']  
+              },function(){
+                window.location.reload();
+              }
+            );
           }
         },    
         error: function() 

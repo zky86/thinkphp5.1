@@ -1,4 +1,4 @@
-<?php /*a:4:{s:66:"D:\phpStudy\WWW\tp5\application\index\view\commentinput\index.html";i:1542610026;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542683077;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542681079;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
+<?php /*a:4:{s:66:"D:\phpStudy\WWW\tp5\application\index\view\commentinput\index.html";i:1542762233;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542683077;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542709557;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,13 +6,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="/static/common/reset.css" />
 <link rel="stylesheet" type="text/css" href="/static/common/layui.css" />
-<link rel="stylesheet" type="text/css" href="/static/common/model.css?1542695305" />
+<link rel="stylesheet" type="text/css" href="/static/common/model.css?1542762248" />
 
 <script type="text/javascript" src="/static/common/layui.all.js"></script>
 <script type="text/javascript" src="/static/common/jquery.js"></script>
 <script type="text/javascript" src="/static/common/index.js"></script>
 <script type="text/javascript" src="/static/common/cookie.js"></script>
 <!-- <link rel="stylesheet" type="text/css" href="/static/index/css/reset.css" /> 变量配置路径-->
+  <script type="text/javascript" src="/static/common/ajaxfileupload.js"></script>
 </head>
 <body>
   <div class="yj-nav mc-hide">
@@ -55,6 +56,7 @@
 
   <div class="login">
     <a href="/index.php/index/LoginIn">登陆</a>
+    <a href="/index.php/index/register">注册</a>
   </div>
 
 </div>
@@ -70,6 +72,18 @@
       <div class="item">
         <textarea  name="content" id="content"  class="content" placeholder="请输入内容" ></textarea>
       </div>
+
+      <div class="item">
+        <br /><br />
+        <p>上传图片</p>
+        <br /><br />
+        <input type="file" id="file"  name="image"  >
+        <br /><br />
+        <img src="" width="200px" height="200px" id="img-change"  class="dn">
+        <br /><br />
+        <button id="saveImg" class=" layui-btn layui-btn-normal">保存图片</button>
+      </div>
+
     </div> 
 
     <div class="btn" >
@@ -153,6 +167,58 @@
           });
           
       });
+
+
+      // 图片上传
+      $("#img-change").click(function () {
+          $("#file").click();  //修改，这里如果不用onchange，会出现一个小bug,当你提交后，图片只能变一次
+      })
+
+
+      function filechange(event){
+          var files = event.target.files, file;
+          if (files && files.length > 0) {
+              // 获取目前上传的文件
+              file = files[0];// 文件大小校验的动作
+              if(file.size > 1024 * 1024 * 2) {
+                  alert('图片大小不能超过 2MB!');
+                  return false;
+              }
+              // 获取 window 的 URL 工具
+              var URL = window.URL || window.webkitURL;
+              // 通过 file 生成目标 url
+              var imgURL = URL.createObjectURL(file);
+              //用attr将img的src属性改成获得的url
+              $("#img-change").attr("src",imgURL);
+              // 使用下面这句可以在内存中释放对此 url 的伺服，跑了之后那个 URL 就无效了
+              // URL.revokeObjectURL(imgURL);
+          }
+      };
+
+      $("#file").change(function(event){
+        filechange(event);
+        $('#img-change').removeClass('dn')
+      });
+
+
+      $("#saveImg").click(function () {
+          $.ajaxFileUpload({
+              url: '/index.php/index/CommentInput/uploadFile',
+              fileElementId:'file',
+              dataType:'txt',
+              secureuri : false,
+              success: function (data){
+                  console.log(data);
+              },
+              error:function(data,status,e){
+                  alert(e);
+              }
+          });
+      });
+
+
+
+
     });
 
   </script>
