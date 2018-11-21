@@ -71,7 +71,7 @@ a {
   text-decoration: none
 }
 a:hover {
-  color: #777
+  /*color: #777*/
 }
 a cite {
   font-style: normal;
