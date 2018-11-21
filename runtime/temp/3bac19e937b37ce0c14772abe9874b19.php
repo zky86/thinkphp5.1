@@ -1,4 +1,4 @@
-<?php /*a:4:{s:62:"D:\phpStudy\WWW\tp5\application\index\view\listpage\index.html";i:1542597279;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542683077;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542709557;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
+<?php /*a:4:{s:62:"D:\phpStudy\WWW\tp5\application\index\view\listpage\index.html";i:1542788131;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542683077;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542709557;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -70,6 +70,9 @@
                 <div class="p2 p"><span class="w">电话号码：</span><?php echo htmlentities($list['tel']); ?></div>
                 <div class="p3 p"><span class="w">留言时间：</span><?php echo htmlentities($list['timer']); ?></div>
                 <div class="p3 p"><span class="w">留言内容：</span><?php echo htmlentities($list['content']); ?></div>
+                <div class="p3 p"><span class="w">留言图片：</span>
+                <br />
+                <img src="/uploads/<?php echo htmlentities($list['imgurl']); ?>" /></div>
             </div> 
           <?php endforeach; endif; else: echo "" ;endif; ?>
 
