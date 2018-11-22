@@ -29,6 +29,8 @@ class CommentInput  extends Controller
     if ($ret > 0) {
       return $this->success('添加成功！');
     }
+    
+
     //insertGetId 方法添加成功，返回插入数据的自增id值
   }
 

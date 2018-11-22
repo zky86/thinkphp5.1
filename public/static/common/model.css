@@ -300,7 +300,47 @@
 }
 
 
+/* 后台新闻列表页面*/
+.admin-news-page {
+  padding: 30px 0 100px 0;
+  font-size: 16px;
+}
+.admin-news-page .list-wrap .item {
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+.admin-news-page .list-wrap .p {
+  padding-top: 20px;
+}
+.admin-news-page .list-wrap .w {
+  width: 100px;
+  display: inline-block;
+  text-align: right;
+  padding-right: 20px;
+  float: left;
+}
 
-
-
-
+.admin-news-page .list-wrap .p4{}
+.admin-news-page .list-wrap .p4 a{color: #e81010;margin-right: 10px;}
+.admin-news-page .list-wrap .textarea-class{
+  float: left;
+  width: 80%;
+  min-height: 150px;
+  padding: 20px 20px;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  padding: 20px 20px;
+}
+.admin-news-page .list-wrap .input-text{
+  width: 80%;
+  border: 1px solid #eee;
+  padding: 10px;
+}
+.admin-news-page .sec{
+  width: 100px;
+}
+.admin-news-page .btn {
+  text-align: center;
+  padding: 60px 0 40px 0;
+}

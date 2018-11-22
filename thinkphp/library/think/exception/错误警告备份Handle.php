@@ -181,17 +181,11 @@ class Handle
 
         ob_start();
         extract($data);
-
-        //  这行要注释
         include Container::get('app')->config('exception_tmpl');
 
-        //  这2行要注释
         // 获取并清空缓存
         $content  = ob_get_clean();
         $response = Response::create($content, 'html');
-
-        // $content = json_encode(['status' => -1]);
-        // $response = new Response($content, 'json');
 
         if ($exception instanceof HttpException) {
             $statusCode = $exception->getStatusCode();
