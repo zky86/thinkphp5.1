@@ -5,7 +5,7 @@ use think\Controller;
 use think\Request;
 
 
-class Index extends Controller
+class Index extends \app\index\controller\Base
 {
 
   // http://tp.local/index.php/index/index

@@ -1,4 +1,4 @@
-<?php /*a:4:{s:58:"D:\phpStudy\WWW\tp5\application\index\view\news\index.html";i:1542859581;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542799991;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542859866;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
+<?php /*a:4:{s:58:"D:\phpStudy\WWW\tp5\application\index\view\news\index.html";i:1542859581;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542799991;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542868182;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -45,15 +45,9 @@
       <a href="/index.php/index/news"> <b>全部新闻</b></a>
         <div class="yj-nav-child" style="display: none;">
           <ul>
-            <li>
-              <a href="/index.php/index/news/index/type/1">娱乐新闻</a>
-            </li>
-            <li>
-              <a href="/index.php/index/news/index/type/2">体育新闻</a>
-            </li>
-            <li>
-              <a href="/index.php/index/news/index/type/3">时事新闻</a>
-            </li>
+            <?php foreach($newList as $vo): ?>
+              <li><a href="/index.php/index/news/index/type/<?php echo htmlentities($vo['id']); ?>"><?php echo htmlentities($vo['name']); ?></a></li>
+            <?php endforeach; ?>
           </ul>
         </div>
     </span>
@@ -134,6 +128,10 @@
     </ul> -->
     底部
   </div>
+</div>
+
+<div id="go-top" class="go-top">
+  <a href="javascript:;">返回顶部</a>
 </div>
 
     

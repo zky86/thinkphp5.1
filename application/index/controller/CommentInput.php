@@ -5,7 +5,7 @@ use think\Controller;
 use think\Request;
 use think\Db;
 
-class CommentInput  extends Controller
+class CommentInput  extends \app\index\controller\Base
 {
 
   // http://tp.local/index.php/index/ListPage

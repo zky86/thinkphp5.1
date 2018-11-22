@@ -33,6 +33,14 @@ $(function(){
         },    
       });
   });
+
+
+  // 返回顶部
+  $('#go-top').on('click', function(event) {
+      event.preventDefault();
+      $("html,body").animate({scrollTop:0},200);
+  });
+  
 });
 
 

@@ -6,7 +6,7 @@ use think\Request;
 use think\Db;
 
 // http://tp.local/public/index.php/index/HelloWorld
-class Register extends Controller
+class Register extends \app\index\controller\Base
 {
     public function index()
     {

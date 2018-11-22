@@ -6,7 +6,7 @@ use think\Db;
 use think\facade\Session;
 
 // http://tp.local/public/index.php/index/HelloWorld
-class LoginIn  extends Controller
+class LoginIn  extends \app\index\controller\Base
 {
     public function index()
     {

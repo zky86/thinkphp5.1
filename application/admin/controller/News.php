@@ -11,6 +11,11 @@ class News extends \app\admin\controller\Base
 {
     public function index()
     {
+
+        $list = Db::table('newstype')->select();
+
+        $this->assign('list', $list);
+
         return $this->fetch('news/index');
     }
 }

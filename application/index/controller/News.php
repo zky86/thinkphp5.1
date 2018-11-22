@@ -7,7 +7,7 @@ use think\Db;
 
 
 // http://tp.local/public/index.php/index/HelloWorld
-class News extends Controller
+class News extends \app\index\controller\Base
 {
     public function index(Request $request)
     {

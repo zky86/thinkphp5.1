@@ -25,15 +25,9 @@
       <a href="/index.php/index/news"> <b>全部新闻</b></a>
         <div class="yj-nav-child" style="display: none;">
           <ul>
-            <li>
-              <a href="/index.php/index/news/index/type/1">娱乐新闻</a>
-            </li>
-            <li>
-              <a href="/index.php/index/news/index/type/2">体育新闻</a>
-            </li>
-            <li>
-              <a href="/index.php/index/news/index/type/3">时事新闻</a>
-            </li>
+            {foreach $newList as $vo}
+              <li><a href="/index.php/index/news/index/type/{$vo.id}">{$vo.name}</a></li>
+            {/foreach}
           </ul>
         </div>
     </span>

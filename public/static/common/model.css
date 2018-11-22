@@ -1,3 +1,6 @@
+.go-top a{width: 30px;height: 30px;display: block; position: fixed; right: 10px;bottom:20px;line-height: 20px;padding: 5px 10px 15px 10px;background: #4B4949;text-decoration: none;color: #fff;border-radius: 5px;}
+.go-top a:hover{background: #3A3939;}
+
 
 /* µ¼º½À¸ */
 .yj-nav {
