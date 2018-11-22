@@ -1,4 +1,4 @@
-<?php /*a:4:{s:62:"D:\phpStudy\WWW\tp5\application\index\view\listpage\index.html";i:1542798832;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542799991;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542799500;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
+<?php /*a:4:{s:62:"D:\phpStudy\WWW\tp5\application\index\view\listpage\index.html";i:1542798832;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542799991;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542858463;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542342080;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -44,13 +44,13 @@
         <div class="yj-nav-child" style="display: none;">
           <ul>
             <li>
-              <a href="javascript:;">娱乐新闻</a>
+              <a href="/index.php/index/news/index/type/1">娱乐新闻</a>
             </li>
             <li>
-              <a href="javascript:;">体育新闻</a>
+              <a href="/index.php/index/news/index/type/2">体育新闻</a>
             </li>
             <li>
-              <a href="javascript:;">时事新闻</a>
+              <a href="/index.php/index/news/index/type/3">时事新闻</a>
             </li>
           </ul>
         </div>
