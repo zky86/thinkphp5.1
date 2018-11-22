@@ -1,4 +1,4 @@
-<?php /*a:4:{s:58:"D:\phpStudy\WWW\tp5\application\admin\view\news\index.html";i:1542857836;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1542800001;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1542799002;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542342080;}*/ ?>
+<?php /*a:4:{s:58:"D:\phpStudy\WWW\tp5\application\admin\view\news\index.html";i:1542859327;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1542800001;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1542799002;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542342080;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -143,16 +143,25 @@
               {
 
                 if (ret.code == 1) {
+
                   // alert("添加成功，请刷新");
-                  layer.open({
-                    title: '',content: '添加成功...',
-                    closeBtn: 0,
-                    area: ['500px', '150px'],
-                    yes: function(index, layero){
-                        window.location.reload();
-                        // layer.close(index); //如果设定了yes回调，需进行手工关闭
+                  // layer.open({
+                  //   title: '',content: '添加成功...',
+                  //   closeBtn: 0,
+                  //   area: ['500px', '150px'],
+                  //   yes: function(index, layero){
+                  //       window.location.reload();
+                  //       // layer.close(index); //如果设定了yes回调，需进行手工关闭
+                  //   }
+                  // });
+
+                  layer.msg( "添加成功,刷新中..." , {  
+                      time: 2000, //20s后自动关闭  
+                      // btn: ['明白了', '知道了']  
+                    },function(){
+                      window.location.reload();
                     }
-                  });
+                  );
                 }
               },    
               error: function() 
