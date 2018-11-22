@@ -1,4 +1,4 @@
-<?php /*a:4:{s:58:"D:\phpStudy\WWW\tp5\application\admin\view\news\index.html";i:1542866911;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1542800001;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1542799002;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542862157;}*/ ?>
+<?php /*a:4:{s:58:"D:\phpStudy\WWW\tp5\application\admin\view\news\index.html";i:1542877532;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1542800001;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1542799002;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542862157;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -72,7 +72,14 @@
                       <?php endforeach; ?>
                     </select>
                 </div>
-                <div class="p4 p clearfix"><span class="w">留言内容：</span><textarea name=" " id="content"  class="textarea-class" ></textarea></div>
+                <div class="p4 p clearfix">
+                  <span class="w">留言内容：</span>
+                  <div class="rt">
+                    <textarea name=" " id="content"  class="textarea-class" ></textarea>
+                  </div>
+                
+                </div>
+
             </div>
         </div>     
       </div>
@@ -106,12 +113,20 @@
 
     <script type="text/javascript">
       $(document).ready(function() {
+
+        var layedit = layui.layedit;
+        var index = layedit.build('content'); //建立编辑器
+
         var imgUrl = "";
         $('#btn').on('click', function(event) {
+
+            var content = layedit.getContent(index);
+
+            console.log(content);
             var title = $("#title").val();
             var des = $("#des").val();
             var type = $("#type").val();
-            var content = $("#content").val();
+            // var content = $("#content").val();
             if (!title) {
                 layer.msg('请输入标题');
                 return false;
