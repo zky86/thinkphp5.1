@@ -24,6 +24,8 @@
 + 新闻发布（新闻标题，简述，内容-富文本编辑，归属类别）
 + 新闻管理（编辑，删除）
 + 添加 [layui.layedit](https://www.layui.com/doc/modules/layedit.html) 富文本编辑器
++ composer安装 captcha php验证码库
++ 登陆，注册，添加验证码校验功能
 
 
 ![](http://www.thinkphp.cn/Uploads/editor/2016-06-23/576b4732a6e04.png) 

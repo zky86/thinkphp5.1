@@ -5,6 +5,7 @@ use think\Controller;
 use think\Db;
 use think\facade\Session;
 
+use think\captcha\Captcha;
 // http://tp.local/public/index.php/index/HelloWorld
 class LoginIn  extends \app\index\controller\Base
 {
@@ -26,6 +27,14 @@ class LoginIn  extends \app\index\controller\Base
       if(empty($param['password'])){
         $this->error('密码不能为空');
       }
+
+      $captcha = new \think\captcha\Captcha();
+
+      if( !$captcha->check(input('post.captcha')))
+      {
+          $this->error('验证码错误');
+      }
+
       // 验证用户名
       $has = Db::table('user')->where('name',$param['name'])->find();
       // print_r($has);
@@ -75,5 +84,36 @@ class LoginIn  extends \app\index\controller\Base
       // $this->redirect(url('login/index'));
       $this->success('退出成功');
     }
+
+
+    // 返回验证码
+    public function verify()
+    {
+        $config =    [
+            // 验证码字体大小
+            'fontSize'    =>    15,
+            // 验证码位数
+            'length'      =>    4,
+            // 关闭验证码杂点
+            'useNoise'    =>    false,
+        ];
+        $captcha = new \think\captcha\Captcha($config);
+        return $captcha->entry();
+    }
+
+
+    // 校验验证码
+    // public function checkcapcha()
+    // {
+    //     $captcha = new \think\captcha\Captcha();
+    //     if( !$captcha->check(input('post.captcha')))
+    //     {
+    //       return false;
+    //     }else{
+    //         return true;
+    //     }
+    // }
+
+
 
 }

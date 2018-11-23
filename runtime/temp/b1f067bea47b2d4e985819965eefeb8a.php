@@ -1,4 +1,4 @@
-<?php /*a:4:{s:62:"D:\phpStudy\WWW\tp5\application\index\view\register\index.html";i:1542708806;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542799991;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542867951;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
+<?php /*a:4:{s:62:"D:\phpStudy\WWW\tp5\application\index\view\register\index.html";i:1542941911;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542799991;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542868182;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -45,11 +45,9 @@
       <a href="/index.php/index/news"> <b>全部新闻</b></a>
         <div class="yj-nav-child" style="display: none;">
           <ul>
-          <?php foreach($newList as $vo): ?>　
-            <li>
-              <a href="/index.php/index/news/index/type/<?php echo htmlentities($vo['id']); ?>"><?php echo htmlentities($vo['name']); ?></a>
-            </li>
-          <?php endforeach; ?>
+            <?php foreach($newList as $vo): ?>
+              <li><a href="/index.php/index/news/index/type/<?php echo htmlentities($vo['id']); ?>"><?php echo htmlentities($vo['name']); ?></a></li>
+            <?php endforeach; ?>
           </ul>
         </div>
     </span>
@@ -87,6 +85,7 @@
         <div class="p1">注册</div>
         <div class="p2"><input type="text"  id="name" class="input-text" placeholder="请输入账号" /></div>
         <div class="p3"><input type="password" id="password" placeholder="请输入密码" class="input-text" /></div>
+        <div class="p4"><input type="text" id="verify" placeholder="输入验证码" class="input-text" /><img src="<?php echo url('/index/LoginIn/verify'); ?>" alt="验证码加载中" id="captcha"/><div></div></div>
 
         <div class="btn">
           <div class="layui-btn layui-btn-normal" id="btn">确定</div>
@@ -121,10 +120,16 @@
 <script type="text/javascript">
   $(document).ready(function() {
     // console.log(getCookie("user_id"));
+    // 
+    $("#captcha").click(function(event) {
+       this.src = "<?php echo url('/index/LoginIn/verify'); ?>?"+Math.random();
+    });
+
 
     $('#btn').on('click', function(event) {
       var name = $("#name").val();
       var password = $("#password").val();
+      var verify = $("#verify").val();
       if (!name) {
           layer.msg('请输入姓名');
           return false;
@@ -134,12 +139,18 @@
           layer.msg('请输入密码');
           return false;
       }
+      if (!verify) {
+          // alert("请输入电话")
+          layer.msg('请输入验证码');
+          return false;
+      }
 
       $.ajax({
         url: '/index.php/index/register/add',
         data: {
           name : name,
-          password : password 
+          password : password,
+          captcha : verify 
         },
         dataType: 'json',
         type: 'POST',

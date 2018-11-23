@@ -276,10 +276,19 @@
   padding: 10px;
   font-size: 14px;
 }
+.login-page .p4 .input-text{
+  width: 50%;
+}
+.login-page .p4 img{
+  width: 40%;
+  margin-top: 28px;
+  margin-left: 10px;
+}
 .login-page .btn {
   margin-top: 40px;
   text-align: center;
 }
+
 
 /* 新闻列表 */
 .new-page {

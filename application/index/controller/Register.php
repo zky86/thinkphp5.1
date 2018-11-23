@@ -15,9 +15,23 @@ class Register extends \app\index\controller\Base
 
     public function add(Request $request)
     {
+        $captcha = new \think\captcha\Captcha();
+
+        if( !$captcha->check(input('post.captcha')))
+        {
+            $this->error('验证码错误');
+        }
+
+
         $name = $this->request->param('name');
         $password = $this->request->param('password');
-        $data = $this->request->param();
+
+        $password = $this->request->param('password');
+        // $data = $this->request->param();
+        $data = array(
+            "name"=> $name,
+            "password"=> $password
+          );
         // print_r($data);
         // 
         // 先判断是否已经存在用户
@@ -34,4 +48,23 @@ class Register extends \app\index\controller\Base
           }
         }
     }
+
+
+    public function loginOut()
+    {
+      $param = input('post.');
+
+      // cookie(null);
+      // cookie('user_id', null);
+      // cookie('name', null); 
+
+      Session::delete('user_id');
+      Session::delete('name');
+
+      // $this->redirect(url('login/index'));
+      $this->success('退出成功');
+    }
+
+
+
 }

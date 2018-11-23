@@ -17,6 +17,7 @@
         <div class="p1">注册</div>
         <div class="p2"><input type="text"  id="name" class="input-text" placeholder="请输入账号" /></div>
         <div class="p3"><input type="password" id="password" placeholder="请输入密码" class="input-text" /></div>
+        <div class="p4"><input type="text" id="verify" placeholder="输入验证码" class="input-text" /><img src="{:url('/index/LoginIn/verify')}" alt="验证码加载中" id="captcha"/><div></div></div>
 
         <div class="btn">
           <div class="layui-btn layui-btn-normal" id="btn">确定</div>
@@ -35,10 +36,16 @@
 <script type="text/javascript">
   $(document).ready(function() {
     // console.log(getCookie("user_id"));
+    // 
+    $("#captcha").click(function(event) {
+       this.src = "{:url('/index/LoginIn/verify')}?"+Math.random();
+    });
+
 
     $('#btn').on('click', function(event) {
       var name = $("#name").val();
       var password = $("#password").val();
+      var verify = $("#verify").val();
       if (!name) {
           layer.msg('请输入姓名');
           return false;
@@ -48,12 +55,18 @@
           layer.msg('请输入密码');
           return false;
       }
+      if (!verify) {
+          // alert("请输入电话")
+          layer.msg('请输入验证码');
+          return false;
+      }
 
       $.ajax({
         url: '/index.php/index/register/add',
         data: {
           name : name,
-          password : password 
+          password : password,
+          captcha : verify 
         },
         dataType: 'json',
         type: 'POST',
