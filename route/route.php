@@ -15,6 +15,9 @@ Route::get('think', function () {
 
 Route::get('hello/:name', 'index/hello');
 
+// 注册路由到index模块的News控制器的read操作
+// Route::rule('news','index/News');
+
 return [
 
 ];

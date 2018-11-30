@@ -3,47 +3,41 @@
 <head>
 {include file="/public/_meta"}
 <link rel="stylesheet" type="text/css" href="/static/index/css/index.css" />
-<title>{$title}</title>
+<title>{$detail.title}</title>
 
 </head>
 <body>
 
     {include file="/public/_header"}
 
-
-    <div class="new-page w1000">
+    <div class="new-detail-page w1000">
         <div class="item-wrap">
 
-          {volist name="list"  id='list'}　
+    
             <div class="item">
                 <div class="title">
-                    <a href="/index.php/index/NewsDetail?id={$list.id}" title="点击查看详情">{$list.title}</a>
+                    {$detail.title}
                 </div>
                 <div class="des pt10">
-                    <a href="/index.php/index/NewsDetail?id={$list.id}"  title="点击查看详情">{$list.des}</a>
+                    {$detail.des}
                 </div>
-            <!--     <div class="content pt10">
-                    {$list.content|raw}
-                </div> -->
+                <div class="content pt10">
+                    {$detail.content|raw}
+                </div>
                 <div class="time pt20">
-                    {$list.timer} 
+                    {$detail.timer} 
                     <span class="ml20">
-                        {if ( $list.type == 1) } 
+                        {if ( $detail.type == 1) } 
                             娱乐新闻
-                        {elseif $list.type == 2 /}
+                        {elseif $detail.type == 2 /}
                             体育新闻
-                        {else $list.type == 3} 
+                        {else $detail.type == 3} 
                             时事新闻
                         {/if}
                     </span>
                 </div>
             </div> 
-          {/volist}
 
-          <div class="page">
-              {$page|raw}
-          </div>
-            
         </div>     
     </div>
 

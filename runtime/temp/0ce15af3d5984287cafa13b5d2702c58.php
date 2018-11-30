@@ -1,4 +1,4 @@
-<?php /*a:4:{s:62:"D:\phpStudy\WWW\tp5\application\admin\view\listpage\index.html";i:1542798760;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1542800001;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1542799002;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542862157;}*/ ?>
+<?php /*a:4:{s:62:"D:\phpStudy\WWW\tp5\application\admin\view\listpage\index.html";i:1542798760;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1542800001;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1543550351;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542862157;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -37,9 +37,13 @@
       </div> -->
     </span>
 
+    <span class="yj-nav-a <?php if(request()->controller() == 'News'): ?>on<?php endif; ?>">
+      <a href="/index.php/admin/PublishNews"> <b>新闻管理</b></a>
+    </span>
+
 
     <span class="yj-nav-a <?php if(request()->controller() == 'News'): ?>on<?php endif; ?>">
-      <a href="/index.php/admin/news"> <b>发布新闻</b></a>
+      <a href="/index.php/admin/PublishNews"> <b>发布新闻</b></a>
     </span>
 
   </div>

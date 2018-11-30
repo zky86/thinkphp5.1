@@ -312,6 +312,32 @@
 }
 
 
+/* 新闻详情 */
+.new-detail-page {
+  padding: 50px 0px 50px 0px;
+}
+.new-detail-page .item{
+  border-bottom: 1px solid #eee;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+.new-detail-page .title{
+  font-size: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+  width: 100%;  
+}
+.new-detail-page .des{
+  padding-top: 20px;
+}
+
+.new-detail-page .content p{
+  margin: 10px auto;
+  text-indent: 28px;
+}
+
 /* 后台新闻列表页面*/
 .admin-news-page {
   padding: 30px 0 100px 0;
@@ -365,6 +391,33 @@
 }
 
 
+
+
+/* 后台新闻列表 */
+.admin-new-page {
+  padding: 50px 0px 50px 0px;
+}
+.admin-new-page .item{
+  border-bottom: 1px solid #eee;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+.admin-new-page .title{
+  font-size: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+  width: 100%;  
+}
+.admin-new-page .des{
+  padding-top: 20px;
+}
+
+.admin-new-page .options a{
+margin-right: 10px;
+/*font-weight: bold;*/
+}
 
 
 

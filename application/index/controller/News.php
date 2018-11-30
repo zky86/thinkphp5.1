@@ -32,6 +32,7 @@ class News extends \app\index\controller\Base
         else{
           $list = Db::table('news')->order("ID desc")->paginate(8);
         }
+        // print_r($list);
         $page = $list->render();
         $this->assign('list', $list);
         $this->assign('title', $title);
