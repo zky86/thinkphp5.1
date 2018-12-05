@@ -17,10 +17,11 @@
           {volist name="list"  id='list'}　
             <div class="item">
                 <div class="title">
-                    <a href="/index.php/index/NewsDetail?id={$list.id}" title="点击查看详情">{$list.title}</a>
+                    <!-- <a href="/index.php/index/NewsDetail?id={$list.id}" title="点击查看详情">{$list.title}</a> -->
+                    <a href="/newsdetail/{$list.id}" title="点击查看详情">{$list.title}</a>
                 </div>
                 <div class="des pt10">
-                    <a href="/index.php/index/NewsDetail?id={$list.id}"  title="点击查看详情">{$list.des}</a>
+                    <a href="/newsdetail/{$list.id}"  title="点击查看详情">{$list.des}</a>
                 </div>
             <!--     <div class="content pt10">
                     {$list.content|raw}

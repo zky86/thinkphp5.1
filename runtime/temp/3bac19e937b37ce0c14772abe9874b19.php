@@ -1,4 +1,4 @@
-<?php /*a:4:{s:62:"D:\phpStudy\WWW\tp5\application\index\view\listpage\index.html";i:1542798832;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542799991;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1542868182;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
+<?php /*a:4:{s:62:"D:\phpStudy\WWW\tp5\application\index\view\listpage\index.html";i:1542798832;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542799991;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1544006483;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -20,12 +20,12 @@
 
   <div class="w-main f-bc f-cb">
     <span class="yj-nav-a <?php if(request()->controller() == 'Index'): ?>on<?php endif; ?> " >
-      <a href="/index.php/index/index"> <b>首页</b>
+      <a href="/"> <b>首页</b>
       </a>
     </span>
 
     <span class="yj-nav-a <?php if(request()->controller() == 'ListPage'): ?>on<?php endif; ?>">
-      <a href="/index.php/index/listPage"> <b>评论列表</b></a>
+      <a href="/commentlist"> <b>评论列表</b></a>
 <!--       <div class="yj-nav-child" style="display: none;">
         <ul>
           <li>
@@ -40,11 +40,12 @@
 
 
     <span class="yj-nav-a <?php if(request()->controller() == 'News'): ?>on<?php endif; ?>">
-      <a href="/index.php/index/news"> <b>全部新闻</b></a>
+      <a href="/news"> <b>全部新闻</b></a>
         <div class="yj-nav-child" style="display: none;">
           <ul>
             <?php foreach($newList as $vo): ?>
-              <li><a href="/index.php/index/news/index/type/<?php echo htmlentities($vo['id']); ?>"><?php echo htmlentities($vo['name']); ?></a></li>
+              <!-- <li><a href="/index.php/index/news/index/type/<?php echo htmlentities($vo['id']); ?>"><?php echo htmlentities($vo['name']); ?></a></li> -->
+              <li><a href="/news/<?php echo htmlentities($vo['id']); ?>"><?php echo htmlentities($vo['name']); ?></a></li>
             <?php endforeach; ?>
           </ul>
         </div>
@@ -52,7 +53,7 @@
 
 
     <span class="yj-nav-a <?php if(request()->controller() == 'CommentInput'): ?>on<?php endif; ?>">
-      <a href="/index.php/index/CommentInput"> <b>发布评论</b></a>
+      <a href="/commentinput"> <b>发布评论</b></a>
 <!--       <div class="yj-nav-child" style="display: none;">
         <ul>
           <li>
@@ -70,8 +71,8 @@
   </div>
 
   <div class="login">
-    <a href="/index.php/index/LoginIn">登陆</a>
-    <a href="/index.php/index/register">注册</a>
+    <a href="/login">登陆</a>
+    <a href="/register">注册</a>
   </div>
 
 </div>

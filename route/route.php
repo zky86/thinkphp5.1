@@ -1,4 +1,5 @@
 <?php
+// use think\Route;
 // +----------------------------------------------------------------------
 // | ThinkPHP [ WE CAN DO IT JUST THINK ]
 // +----------------------------------------------------------------------
@@ -13,7 +14,18 @@ Route::get('think', function () {
     return 'hello,ThinkPHP5!';
 });
 
-Route::get('hello/:name', 'index/hello');
+// 前台
+Route::get('/', 'index/index');
+Route::get('commentlist', 'index/listPage/index');
+Route::get('news', 'index/news/index');
+Route::get('news/:type', 'index/news/index');   //http://tp.local/news/1
+Route::get('newsdetail/:id', 'index/NewsDetail/index');   //http://tp.local/index.php/index/NewsDetail?id=15
+
+Route::get('commentinput', 'index/CommentInput/index');
+Route::get('login', 'index/LoginIn/index');
+Route::get('register', 'index/register/index');
+
+
 
 // 注册路由到index模块的News控制器的read操作
 // Route::rule('news','index/News');
