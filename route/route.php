@@ -18,8 +18,8 @@ Route::get('think', function () {
 Route::get('/', 'index/index');
 Route::get('commentlist', 'index/listPage/index');
 Route::get('news', 'index/news/index');
-Route::get('news/:type', 'index/news/index');   //http://tp.local/news/1
-Route::get('newsdetail/:id', 'index/NewsDetail/index');   //http://tp.local/index.php/index/NewsDetail?id=15
+Route::get('news-:type', 'index/news/index');   //http://tp.local/news/1
+Route::get('newsdetail-:id', 'index/NewsDetail/index');   //http://tp.local/index.php/index/NewsDetail?id=15
 
 Route::get('commentinput', 'index/CommentInput/index');
 Route::get('login', 'index/LoginIn/index');

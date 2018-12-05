@@ -1,4 +1,4 @@
-<?php /*a:4:{s:58:"D:\phpStudy\WWW\tp5\application\index\view\news\index.html";i:1544006699;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542799991;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1544006483;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
+<?php /*a:4:{s:58:"D:\phpStudy\WWW\tp5\application\index\view\news\index.html";i:1544007144;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542799991;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1544007155;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -47,7 +47,7 @@
           <ul>
             <?php foreach($newList as $vo): ?>
               <!-- <li><a href="/index.php/index/news/index/type/<?php echo htmlentities($vo['id']); ?>"><?php echo htmlentities($vo['name']); ?></a></li> -->
-              <li><a href="/news/<?php echo htmlentities($vo['id']); ?>"><?php echo htmlentities($vo['name']); ?></a></li>
+              <li><a href="/news-<?php echo htmlentities($vo['id']); ?>"><?php echo htmlentities($vo['name']); ?></a></li>
             <?php endforeach; ?>
           </ul>
         </div>
@@ -87,10 +87,10 @@
             <div class="item">
                 <div class="title">
                     <!-- <a href="/index.php/index/NewsDetail?id=<?php echo htmlentities($list['id']); ?>" title="点击查看详情"><?php echo htmlentities($list['title']); ?></a> -->
-                    <a href="/newsdetail/<?php echo htmlentities($list['id']); ?>" title="点击查看详情"><?php echo htmlentities($list['title']); ?></a>
+                    <a href="/newsdetail-<?php echo htmlentities($list['id']); ?>" title="点击查看详情"><?php echo htmlentities($list['title']); ?></a>
                 </div>
                 <div class="des pt10">
-                    <a href="/newsdetail/<?php echo htmlentities($list['id']); ?>"  title="点击查看详情"><?php echo htmlentities($list['des']); ?></a>
+                    <a href="/newsdetail-<?php echo htmlentities($list['id']); ?>"  title="点击查看详情"><?php echo htmlentities($list['des']); ?></a>
                 </div>
             <!--     <div class="content pt10">
                     <?php echo $list['content']; ?>
