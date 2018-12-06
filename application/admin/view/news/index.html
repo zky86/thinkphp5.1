@@ -16,10 +16,10 @@
           {volist name="list"  id='list'}　
             <div class="item">
                 <div class="title">
-                    <a href="/index.php/index/NewsDetail?id={$list.id}" title="点击查看详情">{$list.title}</a>
+                    {$list.title}
                 </div>
                 <div class="des pt10">
-                    <a href="/index.php/index/NewsDetail?id={$list.id}"  title="点击查看详情">{$list.des}</a>
+                    {$list.des}
                 </div>
             <!--     <div class="content pt10">
                     {$list.content|raw}
@@ -38,8 +38,8 @@
                 </div>
 
                 <div class="options pt20">
-                    <a href="#">编辑</a>
-                    <a href="#">删除</a>
+                    <a href="/admin/newsdetail-{$list.id}" data-id="{$list.id}" data-role="edit">编辑</a>
+                    <a href="javascript:;" data-id="{$list.id}" data-role="del" >删除</a>
                 </div>
             </div> 
           {/volist}
@@ -54,15 +54,61 @@
     {include file="/public/_footer"}
 
 
-    <script type="text/javascript">
-      $(document).ready(function() {
+<script type="text/javascript">
+    $(document).ready(function() {
+        // 删除
+        $('[data-role="del"]').on('click', function(event) {
+            var id = $(this).attr("data-id");
+            layer.open({
+              title: '',content: '是否确认删除？',
+              closeBtn: 1,
+              area: ['500px', '150px'],
+              yes: function(index, layero){
+                $.ajax({
+                  url: '/admin/news/del',
+                  data: {
+                    id : id,
+                  },
+                  dataType: 'json',
+                  type: 'POST',
+                  cache: false,
+                  beforeSend: function() 
+                  {
+                    
+                  },
+                  success: function(ret) 
+                  {
+                    console.log(ret);
+                    if (ret.code == 1) {
+                      // alert("添加成功，请刷新");
+                      // layer.msg('删除成功！');
 
-       
+
+                      layer.msg( "删除成功！" , {  
+                          time: 2000, //20s后自动关闭  
+                          // btn: ['明白了', '知道了']  
+                        },function(){
+                          window.location.reload();
+                        }
+                      );
+
+                    }
+                  },    
+                  error: function() 
+                  {
+                    
+                  },    
+                });
+              }
+            });
+            
+        });
 
 
-      });
 
-    </script>
+    });
+
+</script>
 
     
 </body>

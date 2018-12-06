@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{include file="/public/_meta"}
+<link rel="stylesheet" type="text/css" href="/static/index/css/index.css" />
+<title>{$detail.title}</title>
+
+</head>
+<body>
+
+    {include file="/public/_header"}
+
+    <div class="new-detail-page w1000">
+        <div class="item-wrap">
+
+    
+            <div class="item">
+                <div class="title">
+                    {$detail.title}
+                </div>
+                <div class="des pt10">
+                    {$detail.des}
+                </div>
+                <div class="content pt10">
+                    {$detail.content|raw}
+                </div>
+                <div class="time pt20">
+                    {$detail.timer} 
+                    <span class="ml20">
+                        {if ( $detail.type == 1) } 
+                            娱乐新闻
+                        {elseif $detail.type == 2 /}
+                            体育新闻
+                        {else $detail.type == 3} 
+                            时事新闻
+                        {/if}
+                    </span>
+                </div>
+            </div> 
+
+        </div>     
+    </div>
+
+
+    {include file="/public/_footer"}
+
+    
+</body>
+</html>

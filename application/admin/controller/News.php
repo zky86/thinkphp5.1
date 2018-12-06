@@ -41,4 +41,17 @@ class News extends \app\admin\controller\Base
 
         return $this->fetch('news/index');
     }
+
+
+    public function del(Request $request)
+    {
+      $id = $this->request->param('id');
+      // print_r($data);
+      $ret = Db::table('news')->where('id',$id)->delete();
+      if ($ret > 0) {
+        return $this->success('删除成功！');
+      }
+    }
+
+
 }

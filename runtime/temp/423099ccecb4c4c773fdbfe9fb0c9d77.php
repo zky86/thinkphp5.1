@@ -1,4 +1,4 @@
-<?php /*a:4:{s:61:"D:\phpStudy\WWW\tp5\application\index\view\loginin\index.html";i:1542941760;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542799991;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1544007155;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
+<?php /*a:4:{s:61:"D:\phpStudy\WWW\tp5\application\index\view\loginin\index.html";i:1544061819;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542799991;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1544007155;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -164,7 +164,7 @@
           console.log(ret);
           if (ret.code == 1) {
             // alert("添加成功，请刷新");
-            location.href = "/index.php/admin/"
+            location.href = "/admin"
           }
           else{
             layer.msg(ret.msg);

@@ -26,6 +26,17 @@ Route::get('login', 'index/LoginIn/index');
 Route::get('register', 'index/register/index');
 
 
+// 后台
+Route::get('admin/', 'admin/index');
+Route::get('admin/commentlist', 'admin/listPage/index/');
+Route::get('admin/publishnews', 'admin/PublishNews/index/');
+
+Route::get('admin/news', 'admin/News/index/');
+Route::get('admin/news', 'admin/News');
+Route::get('admin/newsdetail-:id', 'admin/NewsDetail/index');
+
+
+
 
 // 注册路由到index模块的News控制器的read操作
 // Route::rule('news','index/News');
