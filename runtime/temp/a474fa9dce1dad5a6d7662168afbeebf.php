@@ -1,4 +1,4 @@
-<?php /*a:4:{s:65:"D:\phpStudy\WWW\tp5\application\admin\view\publishnews\index.html";i:1542877532;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1544064651;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1544061296;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542862157;}*/ ?>
+<?php /*a:4:{s:65:"D:\phpStudy\WWW\tp5\application\admin\view\publishnews\index.html";i:1544069840;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1544064651;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1544061296;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542862157;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -150,7 +150,7 @@
             // return;
 
             $.ajax({
-              url: '/index.php/index/News/insert',
+              url: '/news/insert',
               data: {
                 title : title,
                 type : type ,
@@ -184,7 +184,7 @@
                       time: 2000, //20s后自动关闭  
                       // btn: ['明白了', '知道了']  
                     },function(){
-                      window.location.reload();
+                      window.location.href ="/admin/news"
                     }
                   );
                 }
