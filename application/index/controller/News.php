@@ -47,10 +47,16 @@ class News extends \app\index\controller\Base
     {
       //$name = $this->request->param('name');
       $data = $this->request->param();
-
-      // print_r($data);
+      // dump($data);die;
+      
+      $data = array(
+          "title"=>  $this->request->param('title'),
+          "type"=>  $this->request->param('type'),
+          "content"=>  $this->request->param('content'),
+          "des"=>  $this->request->param('des')
+      );
       $ret = Db::table('news')->insertGetId($data);
-      // print_r($ret);
+      // $ret = Db::table('news')->allowField(true)->insertGetId($data);
       if ($ret > 0) {
         return $this->success('添加成功！');
       }

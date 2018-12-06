@@ -1,4 +1,4 @@
-<?php /*a:4:{s:59:"D:\phpStudy\WWW\tp5\application\admin\view\index\index.html";i:1542610268;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1542800001;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1544061296;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542862157;}*/ ?>
+<?php /*a:4:{s:59:"D:\phpStudy\WWW\tp5\application\admin\view\index\index.html";i:1542610268;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1544064651;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1544061296;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542862157;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,9 +7,10 @@
 <link rel="stylesheet" type="text/css" href="/static/common/layui.css" />
 <link rel="stylesheet" type="text/css" href="/static/common/model.css?[timer]" />
 
-<script type="text/javascript" src="/static/common/layui.all.js"></script>
 <script type="text/javascript" src="/static/common/jquery.js"></script>
+<script type="text/javascript" src="/static/common/layui.all.js"></script>
 <script type="text/javascript" src="/static/common/index.js"></script>
+<script type="text/javascript" src="/static/common/cookie.js"></script>
 <!-- <link rel="stylesheet" type="text/css" href="/static/index/css/reset.css" /> 变量配置路径-->
 <link rel="stylesheet" type="text/css" href="/static/index/css/index.css" />
 <title>后台管理首页</title>

@@ -1,4 +1,4 @@
-<?php /*a:4:{s:64:"D:\phpStudy\WWW\tp5\application\admin\view\newsdetail\index.html";i:1543549544;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1542800001;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1544061296;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542862157;}*/ ?>
+<?php /*a:4:{s:64:"D:\phpStudy\WWW\tp5\application\admin\view\newsdetail\index.html";i:1544067527;s:60:"D:\phpStudy\WWW\tp5\application\admin\view\public\_meta.html";i:1544064651;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_header.html";i:1544061296;s:62:"D:\phpStudy\WWW\tp5\application\admin\view\public\_footer.html";i:1542862157;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,9 +7,10 @@
 <link rel="stylesheet" type="text/css" href="/static/common/layui.css" />
 <link rel="stylesheet" type="text/css" href="/static/common/model.css?[timer]" />
 
-<script type="text/javascript" src="/static/common/layui.all.js"></script>
 <script type="text/javascript" src="/static/common/jquery.js"></script>
+<script type="text/javascript" src="/static/common/layui.all.js"></script>
 <script type="text/javascript" src="/static/common/index.js"></script>
+<script type="text/javascript" src="/static/common/cookie.js"></script>
 <!-- <link rel="stylesheet" type="text/css" href="/static/index/css/reset.css" /> 变量配置路径-->
 <link rel="stylesheet" type="text/css" href="/static/index/css/index.css" />
 <title><?php echo htmlentities($detail['title']); ?></title>
@@ -59,36 +60,45 @@
 </div>
 
 
-    <div class="new-detail-page w1000">
+
+
+    <div class="admin-news-page w1000">
+      
+      <div class="list-wrap">
         <div class="item-wrap">
-
-    
             <div class="item">
-                <div class="title">
-                    <?php echo htmlentities($detail['title']); ?>
-                </div>
-                <div class="des pt10">
-                    <?php echo htmlentities($detail['des']); ?>
-                </div>
-                <div class="content pt10">
-                    <?php echo $detail['content']; ?>
-                </div>
-                <div class="time pt20">
-                    <?php echo htmlentities($detail['timer']); ?> 
-                    <span class="ml20">
-                        <?php if(( $detail['type'] == 1)): ?> 
-                            娱乐新闻
-                        <?php elseif($detail['type'] == 2): ?>
-                            体育新闻
-                        <?php else: ?> 
-                            时事新闻
-                        <?php endif; ?>
-                    </span>
-                </div>
-            </div> 
+                <div class="p1 p clearfix"><span class="w">标题：</span><input type="text" value="<?php echo htmlentities($detail['title']); ?>"  id="title" class="input-text" /></div>
+                <div class="p2 p clearfix"><span class="w">简述：</span><input type="text"  value="<?php echo htmlentities($detail['des']); ?>" id="des" class="input-text" /></div>
+                <div class="p3 p clearfix">
+                    <span class="w">分类：</span>
+                    <select id="type" class="sec"> 
 
+                      <option value ="">请选择类别</option>
+                      <?php foreach($list as $vo): ?>　
+                        <option value ="<?php echo htmlentities($vo['id']); ?>" <?php if($vo['id'] == $detail['type']): ?>selected = "selected"<?php endif; ?> > <?php echo htmlentities($vo['name']); ?></option>
+                      <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="p4 p clearfix">
+                  <span class="w">留言内容：</span>
+                  <div class="rt">
+                    <textarea name=" "  id="content"  class="textarea-class" ><?php echo htmlentities($detail['content']); ?></textarea>
+                  </div>
+                
+                </div>
+
+            </div>
         </div>     
+      </div>
+
+      <div class="btn" >
+        <p class=" layui-btn layui-btn-normal" id="btn" >提交</p>
+        <!-- class="layui-btn layui-btn-normal" -->
+      </div>
+
+
     </div>
+
 
 
     <div class="footer">
@@ -109,6 +119,90 @@
   <a href="javascript:;">返回顶部</a>
 </div>
 
-    
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+        var layedit = layui.layedit;
+        var index = layedit.build('content'); //建立编辑器
+        // layedit.setContent(index, '<?php echo htmlentities($detail['content']); ?>');
+
+        var imgUrl = "";
+        $('#btn').on('click', function(event) {
+
+            var content = layedit.getContent(index);
+
+            console.log(content);
+            var title = $("#title").val();
+            var des = $("#des").val();
+            var type = $("#type").val();
+            // var content = $("#content").val();
+            if (!title) {
+                layer.msg('请输入标题');
+                return false;
+            }
+            if (!type) {
+                layer.msg('请输选择分类');
+                return false;
+            }
+            if (!content) {
+                layer.msg('请输入内容');
+                return false;
+            }
+            // return;
+
+            $.ajax({
+              url: '/news/insert',
+              data: {
+                title : title,
+                type : type ,
+                content : content,
+                des : des,
+              },
+              dataType: 'json',
+              type: 'POST',
+              cache: false,
+              beforeSend: function() 
+              {
+                
+              },
+              success: function(ret) 
+              {
+
+                if (ret.code == 1) {
+
+                  // alert("添加成功，请刷新");
+                  // layer.open({
+                  //   title: '',content: '添加成功...',
+                  //   closeBtn: 0,
+                  //   area: ['500px', '150px'],
+                  //   yes: function(index, layero){
+                  //       window.location.reload();
+                  //       // layer.close(index); //如果设定了yes回调，需进行手工关闭
+                  //   }
+                  // });
+
+                  layer.msg( "添加成功,刷新中..." , {  
+                      time: 2000, //20s后自动关闭  
+                      // btn: ['明白了', '知道了']  
+                    },function(){
+                        window.location.href ="/admin/news"
+                      // window.location.reload();
+                    }
+                  );
+                }
+              },    
+              error: function() 
+              {
+                
+              },    
+            });
+            
+        });
+
+
+
+      });
+
+    </script>
 </body>
 </html>
