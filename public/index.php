@@ -14,7 +14,7 @@ namespace think;
 
 // 加载基础文件
 require __DIR__ . '/../thinkphp/base.php';
-
+define('HTML_PATH', './HTML/');//生成静态页面的文件位置
 // 支持事先使用静态方法设置Request对象和Config对象
 
 // 先配置 虚拟主机设置路径指向 

@@ -27,6 +27,9 @@ Route::get('newsdetail-:id', 'index/NewsDetail/index');   //http://tp.local/inde
 Route::get('commentinput', 'index/CommentInput/index');
 Route::get('login', 'index/LoginIn/index');
 Route::get('register', 'index/register/index');
+Route::get('search', 'index/Search/index');
+Route::POST('searchdata', 'index/Search/searchdata');
+
 
 
 // 后台

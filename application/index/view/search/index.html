@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{include file="/public/_meta"}
+<link rel="stylesheet" type="text/css" href="/static/index/css/index.css" />
+<title>首页</title>
+
+</head>
+<body>
+
+    {include file="/public/_header"}
+
+
+    <div class="search-page w1000">
+      
+      <div class="p1th">
+        <div class="item-wrap">
+            <div class="item clearfix">
+                <div class="lbox fl">
+                    姓名：
+                </div>
+                <div class="rbox fl">
+                    <input type="text" name=" " id="name" class="input-text"  placeholder="请输入姓名"/>
+                </div>
+            </div> 
+
+            <div class="item clearfix">
+                <div class="lbox fl">
+                    地址：
+                </div>
+                <div class="rbox fl">
+                    <input type="text" name=" " id="address" class="input-text"  placeholder="请输入地址"/>
+                </div>
+            </div> 
+
+            <div class="item clearfix">
+                <div class="lbox fl">
+                    价格区间：
+                </div>
+                <div class="rbox fl">
+                    <input type="text" name=" " id="priceMin" class="input-text" style="width:120px;"  placeholder="请输入最小值"/>
+                    -
+                    <input type="text" name=" " id="priceMax" class="input-text"  style="width:120px;"    placeholder="请输入最大值"/>
+                </div>
+            </div> 
+            
+        </div>   
+
+        <div class="btn"><button id="btn" class="layui-btn layui-btn-normal">查找</button></div>
+
+      </div>
+
+
+      <div class="p2th dn" id="ret">
+        <div class="box1">查找结果：</div>
+        <div class="box2">
+          <table class="layui-table">
+            <colgroup>
+              <col width="150">
+              <col width="200">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th>姓名</th>
+                <th>价格</th>
+                <th>地址</th>
+                
+              </tr> 
+            </thead>
+            <tbody>
+              <tr>
+                <td>贤心</td>
+                <td>20</td>
+                <td>人生就像是一场修行</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+
+    {include file="/public/_footer"}
+
+    
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+        $('#btn').on('click', function(event) {
+            var name = $("#name").val();
+            var address = $("#address").val();
+            var priceMin = $("#priceMin").val();
+            var priceMax = $("#priceMax").val();
+
+            $.ajax({
+              url: '/searchdata',
+              data: {
+                name : name,
+                address : address ,
+                priceMin : priceMin,
+                priceMax : priceMax,
+              },
+              dataType: 'json',
+              type: 'POST',
+              cache: false,
+              beforeSend: function() 
+              {
+                
+              },
+              success: function(ret) 
+              {
+                console.log(ret);
+                if (ret.code == 1) {
+                  // alert("添加成功，请刷新");
+          
+                }
+              },    
+              error: function() 
+              {
+                
+              },    
+            });
+            
+        });
+
+
+
+
+
+      });
+
+    </script>
+</body>
+</html>

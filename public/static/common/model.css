@@ -420,7 +420,42 @@ margin-right: 10px;
 }
 
 
+/* ≤È’“ */
+.search-page{
+  padding: 30px 0 50px 0;
+  font-size: 14px;
+}
+.search-page .lbox{
+  width: 100px;
+  text-align: right;
+  margin: 12px 20px 0 0;
+}
 
+
+.search-page .item{
+  margin-top: 30px;
+}
+.search-page .rbox{
+}
+
+.search-page .input-text{
+  width: 300px;
+  line-height: 30px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 5px 20px;
+}
+.search-page .btn{
+  text-align: center;
+  padding: 50px;
+}
+.search-page .p2th{
+
+}
+.search-page .p2th .box1{
+  padding-bottom: 10px;
+}
 
 
 
