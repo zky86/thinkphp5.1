@@ -14,7 +14,8 @@
 + 新闻详情
 + 新闻类别归类，读取后台类别
 + 添加查找功能
-+ 引入js模板，ajax渲染后台数据
++ 引入js模板 [art-template](http://aui.github.io/art-template/zh-cn/docs/)，渲染后台ajax数据
++ 修改 art-template 变量修饰符 {% xxx %} 与php分离，解决冲突
 
 ## 后台功能
 + MySql 表设计（评论表，用户信息表，新闻列表，新闻归属类别表）
@@ -28,7 +29,8 @@
 + composer安装 captcha php验证码库
 + 登陆，注册，添加验证码校验功能
 + 重写route路由规则，把长域名访问改成短地址访问方式。
-+ 查找数据库，导出Excel功能 
++ 查找数据库，编写sql多条件查找
++ php导出Excel功能 
 
 ![](http://www.thinkphp.cn/Uploads/editor/2016-06-23/576b4732a6e04.png) 
 

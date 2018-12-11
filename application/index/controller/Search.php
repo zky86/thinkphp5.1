@@ -37,9 +37,9 @@ class Search extends \app\index\controller\Base
 
 
     $ret = Db::table('order')
-    ->where('name','=', $name)
-    ->whereOr('address','like','%' . $address . '%')
-    ->whereOr('price',['>',$priceMin],['<',$priceMax],'and')
+    ->where('name','like', '%' .$name. '%')
+    ->where('address','like','%' . $address . '%')
+    ->where('price',['>',$priceMin],['<',$priceMax],'and')
     ->order('id desc')
     ->select();
     return json($ret);

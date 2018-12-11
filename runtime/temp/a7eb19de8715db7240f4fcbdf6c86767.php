@@ -1,4 +1,4 @@
-<?php /*a:4:{s:60:"D:\phpStudy\WWW\tp5\application\index\view\search\index.html";i:1544169232;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1542799991;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1544166177;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
+<?php /*a:4:{s:60:"D:\phpStudy\WWW\tp5\application\index\view\search\index.html";i:1544500258;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1544499480;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1544166177;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,7 +10,8 @@
 <script type="text/javascript" src="/static/common/layui.all.js"></script>
 <script type="text/javascript" src="/static/common/jquery.js"></script>
 <script type="text/javascript" src="/static/common/index.js"></script>
-<script type="text/javascript" src="/static/common/cookie.js"></script>
+<script type="text/javascript" src="/static/common/index.js"></script>
+<script type="text/javascript" src="/static/common/template-web.js"></script>
 <!-- <link rel="stylesheet" type="text/css" href="/static/index/css/reset.css" /> 变量配置路径-->
 <link rel="stylesheet" type="text/css" href="/static/index/css/index.css" />
 <title>首页</title>
@@ -127,34 +128,46 @@
 
       <div class="p2th dn" id="ret">
         <div class="box1">查找结果：</div>
+
         <div class="box2">
-          <table class="layui-table">
-            <colgroup>
-              <col width="150">
-              <col width="200">
-              <col>
-            </colgroup>
-            <thead>
-              <tr>
-                <th>姓名</th>
-                <th>价格</th>
-                <th>地址</th>
-                
-              </tr> 
-            </thead>
-            <tbody>
-              <tr>
-                <td>贤心</td>
-                <td>20</td>
-                <td>人生就像是一场修行</td>
-              </tr>
-            </tbody>
-          </table>
+
+          <div id="tplEle"></div>
+          <script id="tplData" type="text/html">
+            {%if list != 0 %}
+              <table class="layui-table">
+                <colgroup>
+                  <col width="150">
+                  <col width="200">
+                  <col>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>姓名</th>
+                    <th>价格</th>
+                    <th>地址</th>
+                  </tr> 
+                </thead>
+                    
+                {%each list %}
+                  <tr>
+                    <td> {%$value.name%}</td>
+                    <td> {%$value.price%}</td>
+                    <td> {%$value.address%}</td>
+                  </tr> 
+                {%/each%}
+              </table>
+            {%else%}
+              <div class="no-data f16  fb">
+                暂无数据...
+              </div>
+            {%/if%}
+          </script>
+
         </div>
+
       </div>
 
     </div>
-
 
     <div class="footer">
   <div class="w-main f-bc f-cb">
@@ -173,17 +186,45 @@
 <div id="go-top" class="go-top">
   <a href="javascript:;">返回顶部</a>
 </div>
-
     
     <script type="text/javascript">
-      $(document).ready(function() {
+      // var data = {
+      //     title: '基本例子',
+      //     isAdmin: true,
+      //     list: ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他']
+      // };
+      // // 标准语法的界定符规则
+      // template.defaults.rules[1].test = /{%([@#]?)[ \t]*(\/?)([\w\W]*?)[ \t]*%}/;
+      // var html = template('test', data);
+      // document.getElementById('content').innerHTML = html;
 
+      $(document).ready(function() {
         $('#btn').on('click', function(event) {
             var name = $("#name").val();
             var address = $("#address").val();
             var priceMin = $("#priceMin").val();
             var priceMax = $("#priceMax").val();
 
+            if (!name) {
+                // alert("请输入姓名")
+                layer.msg('请输入姓名');
+                return false;
+            }
+            if (!address) {
+                // alert("请输入电话")
+                layer.msg('请输入地址');
+                return false;
+            }
+            if (!priceMin) {
+                // alert("请输入电话")
+                layer.msg('请输入最小价格');
+                return false;
+            }
+            if (!priceMax) {
+                // alert("请输入电话")
+                layer.msg('请输入最大价格');
+                return false;
+            }
             $.ajax({
               url: '/searchdata',
               data: {
@@ -197,27 +238,27 @@
               cache: false,
               beforeSend: function() 
               {
-                
+                layer.load();
               },
               success: function(ret) 
               {
-                console.log(ret);
-                if (ret.code == 1) {
-                  // alert("添加成功，请刷新");
-          
-                }
+                layer.closeAll('loading');
+                // console.log(ret);
+                var data = {
+                  "list" : []
+                };
+                data.list = ret;
+                var html = template('tplData', data);
+                $('#tplEle').html(html)
+                $('#ret').removeClass('dn')
               },    
               error: function() 
               {
-                
+                layer.closeAll('loading');
               },    
             });
             
         });
-
-
-
-
 
       });
 
