@@ -1,4 +1,4 @@
-<?php /*a:4:{s:59:"D:\phpStudy\WWW\tp5\application\index\view\index\index.html";i:1542607687;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1544499480;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1544166177;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
+<?php /*a:4:{s:58:"D:\phpStudy\WWW\tp5\application\index\view\news\index.html";i:1544007144;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1544499480;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1544166177;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="/static/common/template-web.js"></script>
 <!-- <link rel="stylesheet" type="text/css" href="/static/index/css/reset.css" /> 变量配置路径-->
 <link rel="stylesheet" type="text/css" href="/static/index/css/index.css" />
-<title>首页</title>
+<title><?php echo htmlentities($title); ?></title>
 
 </head>
 <body>
@@ -86,11 +86,41 @@
 </div>
 
 
-    <div class="index-page">
-      
-      <div class="p1th">
-        留言评论系统
-      </div>
+    <div class="new-page w1000">
+        <div class="item-wrap">
+
+          <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?>　
+            <div class="item">
+                <div class="title">
+                    <!-- <a href="/index.php/index/NewsDetail?id=<?php echo htmlentities($list['id']); ?>" title="点击查看详情"><?php echo htmlentities($list['title']); ?></a> -->
+                    <a href="/newsdetail-<?php echo htmlentities($list['id']); ?>" title="点击查看详情"><?php echo htmlentities($list['title']); ?></a>
+                </div>
+                <div class="des pt10">
+                    <a href="/newsdetail-<?php echo htmlentities($list['id']); ?>"  title="点击查看详情"><?php echo htmlentities($list['des']); ?></a>
+                </div>
+            <!--     <div class="content pt10">
+                    <?php echo $list['content']; ?>
+                </div> -->
+                <div class="time pt20">
+                    <?php echo htmlentities($list['timer']); ?> 
+                    <span class="ml20">
+                        <?php if(( $list['type'] == 1)): ?> 
+                            娱乐新闻
+                        <?php elseif($list['type'] == 2): ?>
+                            体育新闻
+                        <?php else: ?> 
+                            时事新闻
+                        <?php endif; ?>
+                    </span>
+                </div>
+            </div> 
+          <?php endforeach; endif; else: echo "" ;endif; ?>
+
+          <div class="page">
+              <?php echo $page; ?>
+          </div>
+            
+        </div>     
     </div>
 
 

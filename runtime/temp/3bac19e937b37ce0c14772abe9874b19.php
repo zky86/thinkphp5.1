@@ -1,7 +1,8 @@
-<?php /*a:4:{s:59:"D:\phpStudy\WWW\tp5\application\index\view\index\index.html";i:1542607687;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1544499480;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1544166177;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
+<?php /*a:4:{s:62:"D:\phpStudy\WWW\tp5\application\index\view\listpage\index.html";i:1542798832;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1544499480;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1544166177;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<title>评论列表</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="/static/common/reset.css" />
 <link rel="stylesheet" type="text/css" href="/static/common/layui.css" />
@@ -13,12 +14,9 @@
 <script type="text/javascript" src="/static/common/index.js"></script>
 <script type="text/javascript" src="/static/common/template-web.js"></script>
 <!-- <link rel="stylesheet" type="text/css" href="/static/index/css/reset.css" /> 变量配置路径-->
-<link rel="stylesheet" type="text/css" href="/static/index/css/index.css" />
-<title>首页</title>
-
+<link rel="stylesheet" type="text/css" href="/static/list/css/list.css" />
 </head>
 <body>
-
     <div class="yj-nav mc-hide">
 
   <div class="w-main f-bc f-cb">
@@ -85,14 +83,32 @@
 
 </div>
 
+    <div class="list-page w1000">
 
-    <div class="index-page">
-      
-      <div class="p1th">
-        留言评论系统
-      </div>
-    </div>
+        <div class="list-wrap">
+          <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?>　
+            <div class="item">
+                <div class="p1 p"><span class="w">用户名：</span><?php echo htmlentities($list['name']); ?></div>
+                <div class="p2 p"><span class="w">电话号码：</span><?php echo htmlentities($list['tel']); ?></div>
+                <div class="p3 p"><span class="w">留言时间：</span><?php echo htmlentities($list['timer']); ?></div>
+                <div class="p4 p"><span class="w">留言内容：</span><?php echo htmlentities($list['content']); ?></div>
+                <div class="p5 p">
+                  <span class="w">留言图片：</span>
+                  <?php if($list['imgurl']): ?> 
+                    <br />
+                    <img src="/uploads/<?php echo htmlentities($list['imgurl']); ?>" />
+                  <?php endif; ?>
+              </div>
+            </div> 
+          <?php endforeach; endif; else: echo "" ;endif; ?>
 
+          <div class="page">
+              <?php echo $page; ?>
+          </div>
+        
+        </div>
+
+    </div>     
 
     <div class="footer">
   <div class="w-main f-bc f-cb">
@@ -111,7 +127,5 @@
 <div id="go-top" class="go-top">
   <a href="javascript:;">返回顶部</a>
 </div>
-
-    
 </body>
 </html>
