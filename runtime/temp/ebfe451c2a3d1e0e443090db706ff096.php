@@ -1,4 +1,4 @@
-<?php /*a:4:{s:66:"D:\phpStudy\WWW\tp5\application\index\view\commentinput\index.html";i:1542798857;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1544499480;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1544166177;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
+<?php /*a:4:{s:66:"D:\phpStudy\WWW\tp5\application\index\view\commentinput\index.html";i:1545133118;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1544499480;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1544166177;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="/static/common/reset.css" />
 <link rel="stylesheet" type="text/css" href="/static/common/layui.css" />
-<link rel="stylesheet" type="text/css" href="/static/common/model.css?1544500377" />
+<link rel="stylesheet" type="text/css" href="/static/common/model.css?1545133121" />
 
 <script type="text/javascript" src="/static/common/layui.all.js"></script>
 <script type="text/javascript" src="/static/common/jquery.js"></script>
@@ -177,15 +177,24 @@
 
               if (ret.code == 1) {
                 // alert("添加成功，请刷新");
-                layer.open({
-                  title: '',content: '添加成功...',
-                  closeBtn: 0,
-                  area: ['500px', '150px'],
-                  yes: function(index, layero){
-                      window.location.reload();
-                      // layer.close(index); //如果设定了yes回调，需进行手工关闭
+                // layer.open({
+                //   title: '',content: '添加成功...',
+                //   closeBtn: 0,
+                //   area: ['500px', '150px'],
+                //   yes: function(index, layero){
+                //       window.location.reload();
+                //       // layer.close(index); //如果设定了yes回调，需进行手工关闭
+                //   }
+                // });
+
+                layer.msg( "添加成功..." , {  
+                    time: 2000, //20s后自动关闭  
+                    // btn: ['明白了', '知道了']  
+                  },function(){
+                    window.location.reload();
                   }
-                });
+                );
+                
               }
             },    
             error: function() 
