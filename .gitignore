@@ -5,3 +5,4 @@
 .env
 .DS_Store
 /sql/sys2.sql
+/sql/member_goods.sql
