@@ -29,7 +29,7 @@ Route::get('login', 'index/LoginIn/index');
 Route::get('register', 'index/register/index');
 Route::get('search', 'index/Search/index');
 Route::POST('searchdata', 'index/Search/searchdata');
-
+Route::get('exportExcelGet', 'index/Search/exportExcelGet');
 
 
 // 后台

@@ -1,4 +1,4 @@
-<?php /*a:4:{s:60:"D:\phpStudy\WWW\tp5\application\index\view\search\index.html";i:1544519064;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1544499480;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1544166177;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
+<?php /*a:4:{s:60:"D:\phpStudy\WWW\tp5\application\index\view\search\index.html";i:1546583695;s:60:"D:\phpStudy\WWW\tp5\application\index\view\public\_meta.html";i:1544499480;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_header.html";i:1544166177;s:62:"D:\phpStudy\WWW\tp5\application\index\view\public\_footer.html";i:1542862148;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -87,88 +87,91 @@
 
 
     <div class="search-page w1000">
-      
-      <div class="p1th">
-        <div class="item-wrap">
-            <div class="item clearfix">
-                <div class="lbox fl">
-                    姓名：
-                </div>
-                <div class="rbox fl">
-                    <input type="text" name=" " id="name" class="input-text"  placeholder="请输入姓名"/>
-                </div>
-            </div> 
+      <form action="/exportExcelGet" method="get">
+        <div class="p1th">
+          <div class="item-wrap">
+              <div class="item clearfix">
+                  <div class="lbox fl">
+                      姓名：
+                  </div>
+                  <div class="rbox fl">
+                      <input type="text" name="name" id="name" class="input-text"  placeholder="请输入姓名"/>
+                  </div>
+              </div> 
 
-            <div class="item clearfix">
-                <div class="lbox fl">
-                    地址：
-                </div>
-                <div class="rbox fl">
-                    <input type="text" name=" " id="address" class="input-text"  placeholder="请输入地址"/>
-                </div>
-            </div> 
+              <div class="item clearfix">
+                  <div class="lbox fl">
+                      地址：
+                  </div>
+                  <div class="rbox fl">
+                      <input type="text" name="address" id="address" class="input-text"  placeholder="请输入地址"/>
+                  </div>
+              </div> 
 
-            <div class="item clearfix">
-                <div class="lbox fl">
-                    价格区间：
-                </div>
-                <div class="rbox fl">
-                    <input type="text" name=" " id="priceMin" class="input-text" style="width:120px;"  placeholder="请输入最小值"/>
-                    -
-                    <input type="text" name=" " id="priceMax" class="input-text"  style="width:120px;"    placeholder="请输入最大值"/>
-                </div>
-            </div> 
-            
-        </div>   
+              <div class="item clearfix">
+                  <div class="lbox fl">
+                      价格区间：
+                  </div>
+                  <div class="rbox fl">
+                      <input type="text" name="priceMin" id="priceMin" class="input-text" style="width:120px;"  placeholder="请输入最小值"/>
+                      -
+                      <input type="text" name="priceMax" id="priceMax" class="input-text"  style="width:120px;"    placeholder="请输入最大值"/>
+                  </div>
+              </div> 
+              
+          </div>   
 
-        <div class="btn"><button id="btn" class="layui-btn layui-btn-normal">查找</button></div>
-
-      </div>
-
-
-      <div class="p2th dn" id="ret">
-        <div class="box1 mb15"><button id="export" class="layui-btn layui-btn-warm">导出Excel</button></div>
-
-
-        <div class="box1">查找结果：</div>
-
-        <div class="box2">
-
-          <div id="tplEle"></div>
-          <script id="tplData" type="text/html">
-            {%if list != 0 %}
-              <table class="layui-table">
-                <colgroup>
-                  <col width="150">
-                  <col width="200">
-                  <col>
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th>姓名</th>
-                    <th>价格</th>
-                    <th>地址</th>
-                  </tr> 
-                </thead>
-                    
-                {%each list %}
-                  <tr>
-                    <td> {%$value.name%}</td>
-                    <td> {%$value.price%}</td>
-                    <td> {%$value.address%}</td>
-                  </tr> 
-                {%/each%}
-              </table>
-            {%else%}
-              <div class="no-data f16  fb">
-                暂无数据...
-              </div>
-            {%/if%}
-          </script>
+          <div class="btn" id="btn"><div  class="layui-btn layui-btn-normal">查找</div></div>
 
         </div>
 
-      </div>
+
+
+
+        <div class="p2th dn" id="ret">
+          <div class="box1 mb15"><button type="submit" id="export" class="layui-btn layui-btn-warm">导出Excel</button></div>
+
+          <div class="box1">查找结果：</div>
+        
+
+          <div class="box2">
+
+            <div id="tplEle"></div>
+            <script id="tplData" type="text/html">
+              {%if list != 0 %}
+                <table class="layui-table">
+                  <colgroup>
+                    <col width="150">
+                    <col width="200">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>姓名</th>
+                      <th>价格</th>
+                      <th>地址</th>
+                    </tr> 
+                  </thead>
+                      
+                  {%each list %}
+                    <tr>
+                      <td> {%$value.name%}</td>
+                      <td> {%$value.price%}</td>
+                      <td> {%$value.address%}</td>
+                    </tr> 
+                  {%/each%}
+                </table>
+              {%else%}
+                <div class="no-data f16  fb">
+                  暂无数据...
+                </div>
+              {%/if%}
+            </script>
+
+          </div>
+
+        </div>
+      </form>
 
     </div>
 
@@ -262,8 +265,9 @@
             });
             
         });
+    });
 
-      });
+
 
     </script>
 </body>
