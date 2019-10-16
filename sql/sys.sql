@@ -1,5 +1,5 @@
 /*
-SQLyog Ultimate v11.27 (32 bit)
+SQLyog Ultimate v12.08 (64 bit)
 MySQL - 5.5.47 : Database - tp5
 *********************************************************************
 */
@@ -28,11 +28,11 @@ CREATE TABLE `comments` (
   `timer` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '时间戳',
   `imgurl` varchar(1000) DEFAULT NULL COMMENT '上传图片路径',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=96 DEFAULT CHARSET=utf8;
 
 /*Data for the table `comments` */
 
-insert  into `comments`(`id`,`name`,`tel`,`content`,`timer`,`imgurl`) values (27,'小三','1345666666','这里是风妹啊  ','2018-11-16 16:18:02',NULL),(46,'郑康源','159','这里是测试内容','2018-11-19 10:07:56',NULL),(45,'万丈测试','134','5555555555','2018-11-16 18:18:18',NULL),(42,'happy哎哎哎','111','内容啊啊啊 ','2018-11-16 16:31:17',NULL),(43,'3','342','323','2018-11-16 16:39:19',NULL),(44,'t3','34t','54353','2018-11-16 16:39:35',NULL),(40,'测试','232','3232','2018-11-16 16:28:26',NULL),(38,'测试','24','最终测试','2018-11-16 16:27:22',NULL),(41,'测试','热武器','认为人','2018-11-16 16:28:48',NULL),(47,'测试翻页','12','测试法法师测试法法师测试法法师测试法法师测试法法师','2018-11-19 10:37:30',NULL),(91,'75555555','9','8','2018-11-21 14:20:30','20181121\\61bba4856dd15c5db54154c39c0d6b9e.png'),(90,'6','7','78','2018-11-21 14:19:49',''),(92,'4','5','66','2018-12-06 11:40:22','20181121\\632c1801f6eb3bde54c75156a3fc3275.png');
+insert  into `comments`(`id`,`name`,`tel`,`content`,`timer`,`imgurl`) values (27,'小三','1345666666','这里是风妹啊  ','2018-11-16 16:18:02',NULL),(46,'郑康源','159','这里是测试内容','2018-11-19 10:07:56',NULL),(45,'万丈测试','134','5555555555','2018-11-16 18:18:18',NULL),(42,'happy哎哎哎','111','内容啊啊啊 ','2018-11-16 16:31:17',NULL),(43,'3','342','323','2018-11-16 16:39:19',NULL),(44,'t3','34t','54353','2018-11-16 16:39:35',NULL),(40,'测试','232','3232','2018-11-16 16:28:26',NULL),(38,'测试','24','最终测试','2018-11-16 16:27:22',NULL),(41,'测试','热武器','认为人','2018-11-16 16:28:48',NULL),(47,'测试翻页','12','测试法法师测试法法师测试法法师测试法法师测试法法师','2018-11-19 10:37:30',NULL),(91,'75555555','9','8','2018-11-21 14:20:30','20181121\\61bba4856dd15c5db54154c39c0d6b9e.png'),(90,'6','7','78','2018-11-21 14:19:49',''),(92,'4','5','66','2018-12-06 11:40:22','20181121\\632c1801f6eb3bde54c75156a3fc3275.png'),(94,'12','2','2','2019-10-16 10:32:49',''),(95,'33','44','55','2019-10-16 15:57:09','');
 
 /*Table structure for table `news` */
 
@@ -65,6 +65,23 @@ CREATE TABLE `newstype` (
 /*Data for the table `newstype` */
 
 insert  into `newstype`(`id`,`name`,`timer`) values (1,'娱乐新闻','2018-11-22 12:15:52'),(2,'体育新闻','2018-11-22 12:16:02'),(3,'时事新闻','2018-11-22 12:16:11'),(4,'财经新闻','2018-11-22 14:09:15');
+
+/*Table structure for table `order` */
+
+DROP TABLE IF EXISTS `order`;
+
+CREATE TABLE `order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `price` int(11) NOT NULL,
+  `timer` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+/*Data for the table `order` */
+
+insert  into `order`(`id`,`name`,`address`,`price`,`timer`) values (1,'测试','广州市',10,'2019-10-16 15:59:00'),(2,'abc','佛山',100,'2019-10-16 15:59:00'),(3,'放大','的',10,'2019-10-25 15:58:46'),(4,'56','他',1,'2019-10-16 15:59:20');
 
 /*Table structure for table `user` */
 
