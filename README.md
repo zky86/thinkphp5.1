@@ -35,6 +35,7 @@
 + php导出Excel功能 
 + php导入Excel数据到sql数据库
 + 增加Redis缓存
+
 ![](http://www.thinkphp.cn/Uploads/editor/2016-06-23/576b4732a6e04.png) 
 
 ThinkPHP 5.1（LTS版本） —— 12载初心，你值得信赖的PHP框架
