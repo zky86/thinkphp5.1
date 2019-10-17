@@ -8,6 +8,7 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 // class Index extends Controller
 // app\admin\controller\Base
+
 class Search extends \app\index\controller\Base
 {
 
@@ -56,23 +57,17 @@ class Search extends \app\index\controller\Base
     $address = $this->request->param('address');
     $priceMin = $this->request->param('priceMin');
     $priceMax = $this->request->param('priceMax');
-
     // $data = $this->request->param();
-
-
     $ret = Db::table('order')
     ->where('name','like', '%' .$name. '%')
     ->where('address','like','%' . $address . '%')
     ->where('price',['>',$priceMin],['<',$priceMax],'and')
     ->order('id desc')
     ->select();
-
     //设置表头：
     $head = ['姓名', '价格', '地址'];
-     
     //数据中对应的字段，用于读取相应数据：
     $keys = ['name', 'price', 'address'];    
-
     $this->exportExcel('用户信息表', $ret, $head, $keys);
   }
 

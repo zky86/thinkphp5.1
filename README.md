@@ -27,6 +27,7 @@
 + 新闻管理（编辑，删除）
 + 添加 [layui.layedit](https://www.layui.com/doc/modules/layedit.html) 富文本编辑器
 + composer安装 captcha php验证码库
++ composer安装 phpoffice 导出Excel库
 + 登陆，注册，添加验证码校验功能
 + 重写route路由规则，把长域名访问改成短地址访问方式。
 + 查找数据库，编写sql多条件查找
