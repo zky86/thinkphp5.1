@@ -33,7 +33,8 @@
 + 查找数据库，编写sql多条件查找
 + MySql导入一千万条数据，给数据表字段添加索引，优化数据库查询效率，添加索引前后查询相差3s（数据保密，不上传）
 + php导出Excel功能 
-
++ php导入Excel数据到sql数据库
++ 增加Redis缓存
 ![](http://www.thinkphp.cn/Uploads/editor/2016-06-23/576b4732a6e04.png) 
 
 ThinkPHP 5.1（LTS版本） —— 12载初心，你值得信赖的PHP框架
