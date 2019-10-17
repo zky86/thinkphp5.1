@@ -30,7 +30,7 @@ Route::get('register', 'index/register/index');
 Route::get('search', 'index/Search/index');
 Route::POST('searchdata', 'index/Search/searchdata');
 Route::get('exportExcelGet', 'index/Search/exportExcelGet');
-
+Route::POST('uploadFile', 'index/Search/uploadFile');
 
 // 后台
 Route::get('admin/', 'admin/index');

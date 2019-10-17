@@ -1,4 +1,4 @@
-<?php /*a:4:{s:52:"D:\root\tp5\application\index\view\search\index.html";i:1563759222;s:52:"D:\root\tp5\application\index\view\public\_meta.html";i:1563759222;s:54:"D:\root\tp5\application\index\view\public\_header.html";i:1563759222;s:54:"D:\root\tp5\application\index\view\public\_footer.html";i:1563759222;}*/ ?>
+<?php /*a:4:{s:52:"D:\root\tp5\application\index\view\search\index.html";i:1571282168;s:52:"D:\root\tp5\application\index\view\public\_meta.html";i:1563759222;s:54:"D:\root\tp5\application\index\view\public\_header.html";i:1563759222;s:54:"D:\root\tp5\application\index\view\public\_footer.html";i:1563759222;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -121,7 +121,13 @@
               
           </div>   
 
-          <div class="btn" id="btn"><div  class="layui-btn layui-btn-normal">查找</div></div>
+          <div class="btn">
+            <div  class="layui-btn layui-btn-normal"  id="btn">查找</div>
+            <button type="button" class="layui-btn" id="upload">
+              <i class="layui-icon">&#xe67c;</i>上传Excel
+            </button>
+        </div>
+
 
         </div>
 
@@ -265,9 +271,33 @@
             });
             
         });
+
+        // 上传文件
+        layui.use('upload', function(){
+          var upload = layui.upload;
+          var uploadInst = upload.render({
+            elem: '#upload' //绑定元素
+            ,url: '/uploadFile' //上传接口
+            ,accept: 'file' //允许上传的文件类型
+            ,before: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+              layer.load();
+            }
+            ,done: function(res){
+              layer.closeAll('loading');
+              if(res.code === 1){
+                layer.msg('上传成功');
+              }else{
+                layer.msg(res.msg);
+              }
+              // console.log(res)
+              //上传完毕回调
+            }
+            ,error: function(){
+              //请求异常回调
+            }
+          });
+        });
     });
-
-
 
     </script>
 </body>
