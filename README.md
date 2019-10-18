@@ -34,7 +34,7 @@
 + MySql导入一千万条数据，给数据表字段添加索引，优化数据库查询效率，添加索引前后查询相差3s（数据保密，不上传）
 + php导出Excel功能 
 + php导入Excel数据到sql数据库
-+ 增加Redis缓存
++ 服务器安装Redis服务器，php添加Redis扩展服务，增加Redis缓存
 
 ![](http://www.thinkphp.cn/Uploads/editor/2016-06-23/576b4732a6e04.png) 
 

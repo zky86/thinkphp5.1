@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="/static/common/reset.css" />
 <link rel="stylesheet" type="text/css" href="/static/common/layui.css" />
-<link rel="stylesheet" type="text/css" href="/static/common/model.css?1571281243" />
+<link rel="stylesheet" type="text/css" href="/static/common/model.css?1571384051" />
 
 <script type="text/javascript" src="/static/common/layui.all.js"></script>
 <script type="text/javascript" src="/static/common/jquery.js"></script>
