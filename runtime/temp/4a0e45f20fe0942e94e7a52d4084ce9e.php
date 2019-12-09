@@ -1,4 +1,4 @@
-<?php /*a:4:{s:52:"D:\root\tp5\application\index\view\search\index.html";i:1571282168;s:52:"D:\root\tp5\application\index\view\public\_meta.html";i:1563759222;s:54:"D:\root\tp5\application\index\view\public\_header.html";i:1563759222;s:54:"D:\root\tp5\application\index\view\public\_footer.html";i:1563759222;}*/ ?>
+<?php /*a:4:{s:52:"D:\root\tp5\application\index\view\search\index.html";i:1575881844;s:52:"D:\root\tp5\application\index\view\public\_meta.html";i:1563759222;s:54:"D:\root\tp5\application\index\view\public\_header.html";i:1563759222;s:54:"D:\root\tp5\application\index\view\public\_footer.html";i:1563759222;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -246,6 +246,7 @@
                 priceMax : priceMax,
               },
               dataType: 'json',
+              timeout : 60000,
               type: 'POST',
               cache: false,
               beforeSend: function() 

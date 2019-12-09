@@ -7,6 +7,7 @@ use think\Db;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use think\facade\Cache;
 // class Index extends Controller
 // app\admin\controller\Base
 
@@ -34,23 +35,60 @@ class Search extends \app\index\controller\Base
     $priceMin = $this->request->param('priceMin');
     $priceMax = $this->request->param('priceMax');
 
+    // 插入十万数据
+    // $data = [];
+    // for ($i= 0; $i < 10000 ; $i++) { 
+    //   $data[$i] = Array(
+    //       'name' => '张三四',
+    //       'address' => '礼物',
+    //       'price'  => $i
+    //   );
+    // };
+    // $ret = Db::table('order')->insertAll($data);
+    // exit;
+
+    // //  redis缓存操作 
+    // Cache::store('redis')->set('name','888');
+    // $name = Cache::store('redis')->get('name');
+    // echo $name;
+    // exit;
+
+
     // $data = $this->request->param();
+    // 
+    // $ret = Db::table('order')
+    // ->where('name','like', '%' .$name. '%')
+    // ->where('address','like','%' . $address . '%')
+    // ->where('price',['>',$priceMin],['<',$priceMax],'and')
+    // ->order('id desc')
+    // ->select();
+    // return json($ret);
 
 
-    $ret = Db::table('order')
-    ->where('name','like', '%' .$name. '%')
-    ->where('address','like','%' . $address . '%')
-    ->where('price',['>',$priceMin],['<',$priceMax],'and')
-    ->order('id desc')
-    ->select();
-    return json($ret);
+    // 缓存测试
+    $testCheck = Cache::store('redis')->get('testCheck');
+    if ($testCheck) {
+      print_r(1);
+      return json($testCheck);
+    } else {
+      print_r(2);
+      $ret = Db::table('order')
+      ->where('name','like', '%' .$name. '%')
+      ->where('address','like','%' . $address . '%')
+      ->where('price',['>',$priceMin],['<',$priceMax],'and')
+      ->order('id desc')
+      ->select();
+      Cache::store('redis')->set('testCheck',$ret);
+      return json($ret);
+      
+    }
+    exit;
     // print_r($ret);
     // if ($ret > 0) {
     //   return $this->success('添加成功！');
     // }
     
   }
-
 
   // 下载文件
   public function exportExcelGet(Request $request)
@@ -130,8 +168,8 @@ class Search extends \app\index\controller\Base
       //  }
         //halt($data);
         //插入数据库
+        // print_r($data);
         $ret = Db::table('order')->insertAll($data);
-        // print_r($ret);
         if ($ret > 0) {
           return $this->success('添加成功！');
         }
